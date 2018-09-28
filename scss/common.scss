@@ -1,0 +1,559 @@
+@charset 'utf-8';
+
+/* 세팅 */
+
+$color: #ff9810;
+$subColor: #ffbf17;
+*::selection{
+	background: $color;
+	color: #fff;
+}
+.color{color: $color;}
+
+
+	/* 헤더 */
+
+#header{
+	width: 100%;
+	height: 65px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: linear-gradient(to right,$color,$subColor);
+	padding: 0 20px;
+	font-family: 'Arial';
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 100;
+	#gnb{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.logo{
+			font-size: 32px;
+			font-weight: 700;
+			color: #fff;
+			margin-right: 30px;
+			display: flex;
+			align-items: center;
+			.logo-text{color: inherit;}
+			.logo-img{width: 35px;height: 47px;margin: 0 5px;}
+		 	&::after{
+				content: "";
+				display: inline-block;
+				width: 1px;
+				height: 30px;
+				background: #f0f0f0;
+				margin-left: 20px;
+			}
+		}
+		ul{
+			display: flex;
+			li{
+				a{
+					font-size: 24px;
+					font-weight: bold;
+					color: #fff;
+					padding: 10px;
+				}
+			}
+		}
+	}
+	.subMenu{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		color: #fff;
+		.fa-language{font-size: 24px;}
+		.login-btn{
+			padding: 5px 10px;
+			background: #e5622e;
+			color: inherit;
+			&::before{
+				content: "";
+				display: inline-block;
+				width: 1px;
+				height: 30px;
+				background: #fff;
+				position: absolute;
+				top: calc(50% - 15px);
+				right: 120px;
+			}
+		}
+		.lang{
+			background: transparent !important;
+			outline: none;
+			color: inherit;
+			border: none;
+			font-size: 16px;
+			font-weight: bold;
+			cursor: pointer;
+			margin-right: 60px;
+			.lang-option{
+				
+			}
+		}
+	}
+}
+
+	/* 헤더 커뮤니티 리스트 */
+
+.head-sub-box{
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 65px;
+	height: 40px;
+	background: rgba(39,39,39,.8);
+	display: flex;
+	align-items: center;
+	color: #fff;
+	z-index: 100;
+	.head-sub-list{
+		margin-left: 20px;
+		display: flex;
+		li > a{
+			margin: 0 10px;
+		}
+	}
+}
+
+
+	/* 메인페이지 비주얼 섹션 */
+
+.visual-section{
+	height: 450px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url(../img/visual-bg.jpg) center / cover;
+	color: #fff;
+	text-align: center;
+	margin-top: 65px;
+	.visual-content{
+		max-width: 450px;
+		width: 100%;
+		text-align: center;
+		position: relative;
+		.content-title{
+			font-size: 60px;
+			font-weight: bold;
+		}
+		.content-subtitle{
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.index-search{
+			margin-top: 40px;
+			.form-input{
+				width: 100%;
+				height: 40px;
+				border-radius: 5px;
+				padding: 5px 20px 5px 10px;
+				border: none;
+				outline: none;
+				color: #000;
+			}
+			.form-btn{
+				width: 40px;
+				height: 30px;
+				background: $color;
+				position: absolute;
+				right: 5px;
+				bottom: 5px;
+				border: none;
+				outline: none;
+				border-radius: 5px;
+				font-size: 16px;
+				font-weight: bold;
+			}
+		}
+	}
+	.point{
+		font-size: 18px;
+	}
+}
+
+	/* 커뮤니티 비주얼 섹션 */
+
+.visual-sec {
+	height: 250px;
+	margin-top: 65px;
+	background: url(../img/visual2-bg.jpg) center / cover;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	.sec-info{
+		.sec-title{
+			color: #fff;
+			font-size: 50px;
+			span{
+				font-weight: bold;
+			}
+		}
+		.sec-mypoint{
+			color: $color;
+			font-size: 18px;
+			font-weight: bold;
+		}
+	}
+	.sec-search{
+		position: relative;
+		.form-input{
+			width: 250px;
+			height: 40px;
+			border-radius: 5px;
+			padding: 5px 20px 5px 10px;
+			border: none;
+			outline: none;
+			color: #000;
+		}
+		.form-btn{
+			width: 40px;
+			height: 30px;
+			background: $color;
+			position: absolute;
+			right: 5px;
+			bottom: 5px;
+			border: none;
+			outline: none;
+			border-radius: 5px;
+			font-size: 16px;
+			font-weight: bold;
+			color: #fff;
+		}
+	}
+}
+
+	/* 메인 페이지 컨텐츠 */
+
+.main-content{
+	width: 550px;
+	margin: 0 auto;
+	position: relative;
+	top: -50px;
+	&::before{
+		content: "";
+		display: inline-block;
+		width: 100%;
+		height: 3px;
+		background: $color;
+		position: relative;
+		top: 3px;
+	}
+	.banner{
+		height: 90px;
+		background: #3f3f3f;
+	}
+	.content-box{
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10px;
+		div{
+			background: #3f3f3f;
+			color: #fff;
+			height: 310px;
+			&::before{
+				display: inline-block;
+				width: 100%;
+				height: 25px;
+				background: $color;
+				line-height: 25px;
+				padding: 0 10px;
+			}
+		}
+		.graph{
+			flex: 1.1;
+			margin-right: 10px;
+			&::before{
+				content: "암호화폐 시총 점유율";
+				text-align: center;
+			}
+		}
+		.coin-calander{
+			flex: 1.9;
+			&::before{
+				content: "오늘의 코인 일정 X.XX";
+			}
+		}
+	}
+}
+
+	/* 컨테이너 wrap */
+
+.container_wr{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row-reverse;
+	align-items: baseline;
+	margin: 0 auto;
+	position: relative;
+	top: -40px;
+	margin-bottom: 100px;
+	.container{
+		width: 975px;
+		position: relative;
+		margin-bottom: 100px;
+	}
+}
+
+	/* 로그인 폼 */
+
+.login-frm{
+	width: 380px;
+	height: 540px;
+	background: #fff;
+	box-shadow: 0 0 30px rgba(0,0,0,0.4);
+	margin: 0 auto;
+	padding: 20px 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	text-align: center;
+	margin-top: -20px;
+	.login-title{
+		font-size: 32px;
+		font-weight: bold;
+		text-align: center;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.sns-box{
+		flex: .6;
+		display: flex;
+		justify-content: space-around;
+		flex-direction: column;
+		align-items: center;
+		.sns-login-btn{
+			display: inline-block;
+			width: 100%;
+			height: 40px;
+			border-radius: 5px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 18px;
+			font-family: Arial;
+			box-shadow: 0 0 10px rgba(0,0,0,0.4);
+		}
+		.facebook-login{
+			background: #3b5998;
+			color: #fff;
+		}
+		.kakao-login{
+			background: #ffeb00;
+			color: #3c1e1e;
+			.kakao-logo{
+				display: inline-block;
+				width: 25px;
+				height: 25px;
+				background: url(../img/kakaotalk-logo.png) center / cover;
+			}
+		}
+	}
+}
+
+	/* aside */
+
+.aside-wrap{
+	margin-right: 20px;
+	padding: 10px;
+	background: #fff;
+	font-size: 15px;
+	min-width: 205px;
+	.aside-box{
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+		.aside-login{
+			display: inline-block;
+			width: 100%;
+			height: 30px;
+			background: $color;
+			color: #fff;
+			border-radius: 5px;
+			text-align: center;
+			line-height: 30px;
+		}
+		.aside-menu{
+			line-height: 24px;
+			.aside-subtitle{
+				font-size: 12px;
+				margin-bottom: 10px;
+			}
+			.aside-list{
+				li{
+					a{
+						display: block;
+						padding: 0 10px;
+						transition: .4s;
+						&:hover{
+							background: fade-out($color,.7);
+						}
+					}
+				}
+			}
+			&::before{
+				content: "";
+				display: inline-block;
+				width: 110%;
+				margin-left: -5%;
+				height: 1px;
+				background: rgba(0,0,0,0.2);
+			}
+		}
+	}
+}
+
+	/* 게시판 */
+
+.board-serach-frm{
+	height: 100px;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	padding: 0 20px;
+	.search-top-wrap{
+		display: flex;
+		height: 100%;
+		justify-content: space-between;
+		align-items: center;
+		.board-title{
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.write-btn{
+			color: $color;
+			font-size: 20px;
+		}
+	}
+	.search-bottom-wrap{
+		display: flex;
+		justify-content: space-between;
+		height: 100%;
+		align-items: center;
+		.sort-list{
+			display: flex;
+			li{
+				margin-right: 20px;
+				font-size: 16px;
+				&.active{
+					color: $color;
+				}
+			}
+		}
+	}
+}
+
+	/* 게시글 리스트 */
+
+.board-list-wrap{
+	background: #fff;
+	margin-top: 20px;
+	.list-wrap{
+		height: 80px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 10px;
+		border-bottom: 1px solid #d8d8d8;
+		.list-info{
+			width: 250px;
+			display: flex;
+			.list-idx{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				color: #a8a8a8;
+				margin-right: 30px;
+			}
+			.list-subinfo{
+				.list-title{
+					font-size: 16px;
+					.cnt_comment{
+						color: $color;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+		.list-img-warp{
+			width: 90px;
+			height: 60px;
+			margin-right: 10px;
+			.list-img{
+				height: 100%;
+			}
+		}
+		&.notice{
+			background: fade-out($color,.1);
+			color: #fff;
+			font-weight: bold;
+			.list-info{
+				.list-idx{
+					color: #fff;
+				}
+			}
+			.list-subinfo .list-title .cnt_comment {
+				color: #fff;
+			}
+		}
+	}
+}
+
+//view 페이지 하단 리스트
+
+.v-bottom-list{
+	height: 50px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	border-bottom: 1px solid #d8d8d8;
+	div{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.v-wrgood{flex: .1;}
+	.v-subject{flex: .7;justify-content: space-between;}
+	.v-datetime{flex:.1;}
+	.v-writer{flex:.1;}
+}
+
+//게시물이 존재하지 않을 때
+
+.no-content{
+	width: 100%;
+	height: 100px;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+	/* footer */
+
+.footer{
+	width: 100%;
+	height: 100px;
+	background: #252525;
+	color: #fff;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 0 10px;
+	position: absolute;
+	margin-top: 150px;
+	.footer-menu{
+		display: flex;
+		li{
+			margin-right: 20px;
+		}
+	}
+	.footer-social-btn{
+		font-size: 24px;
+		align-self: flex-end;
+		margin-bottom: 10px;
+	}
+}
