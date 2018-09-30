@@ -93,9 +93,9 @@
 .main-content .content-box .coin-calander::before { content: "오늘의 코인 일정 X.XX"; }
 
 /* 컨테이너 wrap */
-.container_wr { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; -webkit-box-align: baseline; -ms-flex-align: baseline; align-items: baseline; margin: 0 auto; position: relative; top: -40px; margin-bottom: 100px; }
+.container_wr { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; margin: 0 auto; position: relative; top: -40px; }
 
-.container_wr .container { width: 975px; position: relative; margin-bottom: 100px; }
+.container_wr .container { width: 975px; position: relative; }
 
 /* 로그인 폼 */
 .login-frm { width: 380px; height: 540px; background: #fff; -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.4); box-shadow: 0 0 30px rgba(0, 0, 0, 0.4); margin: 0 auto; padding: 20px 20px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: distribute; justify-content: space-around; text-align: center; margin-top: -20px; }
@@ -181,10 +181,14 @@
 
 .v-bottom-list .v-writer { -webkit-box-flex: .1; -ms-flex: .1; flex: .1; }
 
+/* 게시물이 존재하지 않을 때 */
 .no-content { width: 100%; height: 100px; background: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
+/* 글작성 페이지 */
+.write-wrap { margin-top: 40px; }
+
 /* footer */
-.footer { width: 100%; height: 100px; background: #252525; color: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 0 10px; position: absolute; margin-top: 150px; }
+.footer { height: 100px; background: #252525; color: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 0 10px; }
 
 .footer .footer-menu { display: -webkit-box; display: -ms-flexbox; display: flex; }
 

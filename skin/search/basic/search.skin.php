@@ -48,9 +48,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$search_skin_url.'/style.css">', 
         <p></p>
     </section>
     <?php
-        }
-    }
+        } else {
     ?>
+    <section id="sch_res_ov">
+        <dl>
+            <dd>검색 결과가 없습니다.</dd>
+        </dl>
+    </section>
+    <?php }} ?>
 
     </div>
 

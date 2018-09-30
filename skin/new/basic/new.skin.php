@@ -53,16 +53,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$new_skin_url.'/style.css">', 0);
             </fieldset>
        </div>
 
-       <div class="search-bottom-wrap">
-            <ul class="sort-list">
-                <li class="wr_hit"><?php echo subject_sort_link('wr_hit', $qstr2, 1) ?><i class="fas fa-fire"> 인기</i></a></li><!-- 조회수 -->
-                <li class="wr_datetime"><?php echo subject_sort_link('wr_datetime', $qstr2, 1) ?><i class="fas fa-sun"> 최신</i></a></li><!-- 날짜 desc -->
-                <li class="wr_good"><?php echo subject_sort_link('wr_good', $qstr2, 1) ?><i class="fas fa-angle-double-up"> TOP</i></a></li><!-- 추천수 -->
-                <li class="wr_good10"><?php echo subject_sort_link('wr_good10', $qstr2, 1) ?><i class="fas fa-thumbs-up"> 10추</i></a></li><!-- 10추천 이상만 날짜 desc -->
-            </ul>
 
-
-       </div>
    </div>
     <!-- } 게시판 검색 끝 -->
 

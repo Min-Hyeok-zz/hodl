@@ -286,15 +286,12 @@ $subColor: #ffbf17;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row-reverse;
-	align-items: baseline;
 	margin: 0 auto;
 	position: relative;
 	top: -40px;
-	margin-bottom: 100px;
 	.container{
 		width: 975px;
 		position: relative;
-		margin-bottom: 100px;
 	}
 }
 
@@ -521,7 +518,7 @@ $subColor: #ffbf17;
 	.v-writer{flex:.1;}
 }
 
-//게시물이 존재하지 않을 때
+/* 게시물이 존재하지 않을 때 */
 
 .no-content{
 	width: 100%;
@@ -532,10 +529,17 @@ $subColor: #ffbf17;
 	align-items: center;
 }
 
+	/* 글작성 페이지 */
+
+.write-wrap{
+	margin-top: 40px;
+}
+
+
+
 	/* footer */
 
 .footer{
-	width: 100%;
 	height: 100px;
 	background: #252525;
 	color: #fff;
@@ -543,8 +547,6 @@ $subColor: #ffbf17;
 	justify-content: space-around;
 	align-items: center;
 	padding: 0 10px;
-	position: absolute;
-	margin-top: 150px;
 	.footer-menu{
 		display: flex;
 		li{
