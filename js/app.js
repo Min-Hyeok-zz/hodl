@@ -10,13 +10,14 @@ function asideFixed () {
 		$(aside).css({
 			position: 'fixed',
 			left: leftTotal+'px',
-			top: '105px'
+			top: '105px',
+			height: ""
 		})
 	} else {
 		$(aside).css({
 			position: '',
 			left: "",
-			top: ""
+			top: "0"
 		})
 	}
 }

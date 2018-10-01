@@ -93,12 +93,12 @@
 .main-content .content-box .coin-calander::before { content: "오늘의 코인 일정 X.XX"; }
 
 /* 컨테이너 wrap */
-.container_wr { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; margin: 0 auto; position: relative; top: -40px; }
+.container_wr { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; margin: 0 auto; position: relative; top: -40px; min-height: 480px; }
 
 .container_wr .container { width: 975px; position: relative; }
 
 /* 로그인 폼 */
-.login-frm { width: 380px; height: 540px; background: #fff; -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.4); box-shadow: 0 0 30px rgba(0, 0, 0, 0.4); margin: 0 auto; padding: 20px 20px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: distribute; justify-content: space-around; text-align: center; margin-top: -20px; }
+.login-frm { width: 380px; height: 540px; background: #fff; -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.4); box-shadow: 0 0 30px rgba(0, 0, 0, 0.4); margin: 0 auto; padding: 20px 20px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: distribute; justify-content: space-around; text-align: center; position: absolute; left: calc(50vw - 190px); top: calc(45vh - 270px); }
 
 .login-frm .login-title { font-size: 32px; font-weight: bold; text-align: center; display: inline-block; vertical-align: middle; }
 
@@ -113,11 +113,11 @@
 .login-frm .sns-box .kakao-login .kakao-logo { display: inline-block; width: 25px; height: 25px; background: url(../img/kakaotalk-logo.png) center/cover; }
 
 /* aside */
-.aside-wrap { margin-right: 20px; padding: 10px; background: #fff; font-size: 15px; min-width: 205px; }
+.aside-wrap { margin-right: 20px; padding: 10px; background: #fff; font-size: 15px; min-width: 205px; max-height: 480px; }
 
 .aside-wrap .aside-box { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; text-align: left; }
 
-.aside-wrap .aside-box .aside-login { display: inline-block; width: 100%; height: 30px; background: #ff9810; color: #fff; border-radius: 5px; text-align: center; line-height: 30px; }
+.aside-wrap .aside-box .aside-login { height: 30px; background: #ff9810; color: #fff; border-radius: 5px; text-align: center; line-height: 30px; }
 
 .aside-wrap .aside-box .aside-menu { line-height: 24px; }
 
@@ -188,7 +188,7 @@
 .write-wrap { margin-top: 40px; }
 
 /* footer */
-.footer { height: 100px; background: #252525; color: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 0 10px; }
+.footer { width: 100%; height: 100px; background: #252525; color: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 0 10px; }
 
 .footer .footer-menu { display: -webkit-box; display: -ms-flexbox; display: flex; }
 
