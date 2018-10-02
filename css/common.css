@@ -5,8 +5,10 @@
 
 .color { color: #ff9810; }
 
+html, body { overflow-x: hidden; }
+
 /* 헤더 */
-#header { width: 100%; height: 65px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background: -webkit-gradient(linear, left top, right top, from(#ff9810), to(#ffbf17)); background: linear-gradient(to right, #ff9810, #ffbf17); padding: 0 20px; font-family: 'Arial'; position: fixed; left: 0; top: 0; z-index: 100; }
+#header { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background: -webkit-gradient(linear, left top, right top, from(#ff9810), to(#ffbf17)); background: linear-gradient(to right, #ff9810, #ffbf17); padding: 0 20px; font-family: 'Arial'; position: fixed; left: 0; top: 0; z-index: 100; padding: 9px; }
 
 #header #gnb { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
@@ -15,8 +17,6 @@
 #header #gnb .logo .logo-text { color: inherit; }
 
 #header #gnb .logo .logo-img { width: 35px; height: 47px; margin: 0 5px; }
-
-#header #gnb .logo::after { content: ""; display: inline-block; width: 1px; height: 30px; background: #f0f0f0; margin-left: 20px; }
 
 #header #gnb ul { display: -webkit-box; display: -ms-flexbox; display: flex; }
 
@@ -28,8 +28,6 @@
 
 #header .subMenu .login-btn { padding: 5px 10px; background: #e5622e; color: inherit; }
 
-#header .subMenu .login-btn::before { content: ""; display: inline-block; width: 1px; height: 30px; background: #fff; position: absolute; top: calc(50% - 15px); right: 120px; }
-
 #header .subMenu .lang { background: transparent !important; outline: none; color: inherit; border: none; font-size: 16px; font-weight: bold; cursor: pointer; margin-right: 60px; }
 
 /* 헤더 커뮤니티 리스트 */
@@ -39,10 +37,28 @@
 
 .head-sub-box .head-sub-list li > a { margin: 0 10px; }
 
+.head-sub-box .toggle-menu { position: absolute; width: 35px; height: 20px; right: 20px; top: calc(50% - 10px); padding: 5px; -webkit-transition: .4s; transition: .4s; cursor: pointer; padding: 10px 5px 10px 5px; }
+
+@media (min-width: 1221px) { .head-sub-box .toggle-menu { display: none; } }
+
+.head-sub-box .toggle-menu > span { width: 100%; height: 3px; background: #fff; position: absolute; -webkit-transition: .5s; transition: .5s; left: 0; }
+
+.head-sub-box .toggle-menu > span:nth-child(1) { top: 0; }
+
+.head-sub-box .toggle-menu > span:nth-child(2) { top: 50%; }
+
+.head-sub-box .toggle-menu > span:nth-child(3) { top: 100%; }
+
+.head-sub-box .toggle-menu.active > span:nth-child(1) { width: 0%; opacity: 0; }
+
+.head-sub-box .toggle-menu.active > span:nth-child(2) { -webkit-transform: rotate3d(1, 1, 100, 45deg); transform: rotate3d(1, 1, 100, 45deg); }
+
+.head-sub-box .toggle-menu.active > span:nth-child(3) { -webkit-transform: rotate3d(1, 1, 100, -45deg) translateY(-6.5px) translateX(6.5px); transform: rotate3d(1, 1, 100, -45deg) translateY(-6.5px) translateX(6.5px); }
+
 /* 메인페이지 비주얼 섹션 */
 .visual-section { height: 450px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background: url(../img/visual-bg.jpg) center/cover; color: #fff; text-align: center; margin-top: 65px; }
 
-.visual-section .visual-content { max-width: 450px; width: 100%; text-align: center; position: relative; }
+.visual-section .visual-content { max-width: 450px; width: 100%; text-align: center; position: relative; margin: 0 10px; }
 
 .visual-section .visual-content .content-title { font-size: 60px; font-weight: bold; }
 
@@ -59,6 +75,8 @@
 /* 커뮤니티 비주얼 섹션 */
 .visual-sec { height: 250px; margin-top: 65px; background: url(../img/visual2-bg.jpg) center/cover; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
+@media (max-width: 760px) { .visual-sec { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding: 40px 0; } }
+
 .visual-sec .sec-info .sec-title { color: #fff; font-size: 50px; }
 
 .visual-sec .sec-info .sec-title span { font-weight: bold; }
@@ -72,7 +90,7 @@
 .visual-sec .sec-search .form-btn { width: 40px; height: 30px; background: #ff9810; position: absolute; right: 5px; bottom: 5px; border: none; outline: none; border-radius: 5px; font-size: 16px; font-weight: bold; color: #fff; }
 
 /* 메인 페이지 컨텐츠 */
-.main-content { width: 550px; margin: 0 auto; position: relative; top: -50px; }
+.main-content { width: 550px; margin: 0 auto; position: relative; top: -50px; padding: 0 10px; }
 
 .main-content::before { content: ""; display: inline-block; width: 100%; height: 3px; background: #ff9810; position: relative; top: 3px; }
 
@@ -84,21 +102,27 @@
 
 .main-content .content-box div::before { display: inline-block; width: 100%; height: 25px; background: #ff9810; line-height: 25px; padding: 0 10px; }
 
-.main-content .content-box .graph { -webkit-box-flex: 1.1; -ms-flex: 1.1; flex: 1.1; margin-right: 10px; }
+.main-content .content-box .graph { -webkit-box-flex: .35; -ms-flex: .35; flex: .35; margin-right: 10px; }
 
 .main-content .content-box .graph::before { content: "암호화폐 시총 점유율"; text-align: center; }
 
-.main-content .content-box .coin-calander { -webkit-box-flex: 1.9; -ms-flex: 1.9; flex: 1.9; }
+.main-content .content-box .coin-calander { -webkit-box-flex: .65; -ms-flex: .65; flex: .65; }
 
 .main-content .content-box .coin-calander::before { content: "오늘의 코인 일정 X.XX"; }
 
 /* 컨테이너 wrap */
-.container_wr { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; margin: 0 auto; position: relative; top: -40px; min-height: 480px; }
+.container_wr { margin: 0 auto; position: relative; top: -40px; min-height: 480px; }
+
+@media (min-width: 1221px) { .container_wr { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; } }
 
 .container_wr .container { width: 975px; position: relative; }
 
+@media (max-width: 1220px) { .container_wr .container { width: 100vw; } }
+
 /* 로그인 폼 */
 .login-frm { width: 380px; height: 540px; background: #fff; -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.4); box-shadow: 0 0 30px rgba(0, 0, 0, 0.4); margin: 0 auto; padding: 20px 20px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: distribute; justify-content: space-around; text-align: center; position: absolute; left: calc(50vw - 190px); top: calc(45vh - 270px); }
+
+@media (max-width: 760px) { .login-frm { width: 100%; left: 0; } }
 
 .login-frm .login-title { font-size: 32px; font-weight: bold; text-align: center; display: inline-block; vertical-align: middle; }
 
@@ -113,9 +137,17 @@
 .login-frm .sns-box .kakao-login .kakao-logo { display: inline-block; width: 25px; height: 25px; background: url(../img/kakaotalk-logo.png) center/cover; }
 
 /* aside */
-.aside-wrap { margin-right: 20px; padding: 10px; background: #fff; font-size: 15px; min-width: 205px; max-height: 480px; }
+.aside-wrap { font-size: 15px; min-width: 205px; }
 
-.aside-wrap .aside-box { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; text-align: left; }
+@media (min-width: 1221px) { .aside-wrap { margin-right: 20px; } }
+
+@media (max-width: 1220px) { .aside-wrap { position: fixed; -webkit-transition: .4s; transition: .4s; right: -205px; top: 100px; } }
+
+.aside-wrap.active { right: 0px; }
+
+.aside-wrap .aside-box { padding: 10px; background: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; text-align: left; }
+
+@media (max-width: 1220px) { .aside-wrap .aside-box { -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); } }
 
 .aside-wrap .aside-box .aside-login { height: 30px; background: #ff9810; color: #fff; border-radius: 5px; text-align: center; line-height: 30px; }
 
@@ -130,15 +162,17 @@
 .aside-wrap .aside-box .aside-menu::before { content: ""; display: inline-block; width: 110%; margin-left: -5%; height: 1px; background: rgba(0, 0, 0, 0.2); }
 
 /* 게시판 */
-.board-serach-frm { height: 100px; background: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding: 0 20px; }
+.board-serach-frm { background: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding: 5px 20px 5px 20px; }
 
-.board-serach-frm .search-top-wrap { display: -webkit-box; display: -ms-flexbox; display: flex; height: 100%; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+@media (max-width: 760px) { .board-serach-frm { padding: 0 10px; } }
+
+.board-serach-frm .search-top-wrap { display: -webkit-box; display: -ms-flexbox; display: flex; height: 100%; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 
 .board-serach-frm .search-top-wrap .board-title { font-size: 16px; font-weight: bold; }
 
 .board-serach-frm .search-top-wrap .write-btn { color: #ff9810; font-size: 20px; }
 
-.board-serach-frm .search-bottom-wrap { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; height: 100%; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.board-serach-frm .search-bottom-wrap { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; height: 100%; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-wrap: wrap; flex-wrap: wrap; padding-bottom: 5px; }
 
 .board-serach-frm .search-bottom-wrap .sort-list { display: -webkit-box; display: -ms-flexbox; display: flex; }
 
@@ -151,11 +185,13 @@
 
 .board-list-wrap .list-wrap { height: 80px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 0 10px; border-bottom: 1px solid #d8d8d8; }
 
-.board-list-wrap .list-wrap .list-info { width: 250px; display: -webkit-box; display: -ms-flexbox; display: flex; }
+.board-list-wrap .list-wrap .list-info { display: -webkit-box; display: -ms-flexbox; display: flex; }
 
 .board-list-wrap .list-wrap .list-info .list-idx { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; color: #a8a8a8; margin-right: 30px; }
 
 .board-list-wrap .list-wrap .list-info .list-subinfo .list-title { font-size: 16px; }
+
+@media (max-width: 1220px) { .board-list-wrap .list-wrap .list-info .list-subinfo .list-title { font-size: 14px; } }
 
 .board-list-wrap .list-wrap .list-info .list-subinfo .list-title .cnt_comment { color: #ff9810; font-size: 14px; }
 
@@ -169,17 +205,21 @@
 
 .board-list-wrap .list-wrap.notice .list-subinfo .list-title .cnt_comment { color: #fff; }
 
-.v-bottom-list { height: 50px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; text-align: center; border-bottom: 1px solid #d8d8d8; }
+#bo_sch { margin: 10px 0 10px 0; }
+
+#bo_sch form { display: -webkit-box; display: -ms-flexbox; display: flex; }
+
+.v-bottom-list { height: 50px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; border-bottom: 1px solid #d8d8d8; }
 
 .v-bottom-list div { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.v-bottom-list .v-wrgood { -webkit-box-flex: .1; -ms-flex: .1; flex: .1; }
+.v-bottom-list .v-wrgood { -webkit-box-flex: .05; -ms-flex: .05; flex: .05; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
 
-.v-bottom-list .v-subject { -webkit-box-flex: .7; -ms-flex: .7; flex: .7; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+.v-bottom-list .v-subject { -webkit-box-flex: .6; -ms-flex: .6; flex: .6; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; padding-left: 10px; }
 
-.v-bottom-list .v-datetime { -webkit-box-flex: .1; -ms-flex: .1; flex: .1; }
+.v-bottom-list .v-datetime { -webkit-box-flex: .2; -ms-flex: .2; flex: .2; }
 
-.v-bottom-list .v-writer { -webkit-box-flex: .1; -ms-flex: .1; flex: .1; }
+.v-bottom-list .v-writer { -webkit-box-flex: .15; -ms-flex: .15; flex: .15; }
 
 /* 게시물이 존재하지 않을 때 */
 .no-content { width: 100%; height: 100px; background: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }

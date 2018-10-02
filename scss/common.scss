@@ -1,4 +1,5 @@
 @charset 'utf-8';
+@import "functions";
 
 /* 세팅 */
 
@@ -9,13 +10,15 @@ $subColor: #ffbf17;
 	color: #fff;
 }
 .color{color: $color;}
+html,body{
+	overflow-x: hidden;
+}
 
 
 	/* 헤더 */
 
 #header{
 	width: 100%;
-	height: 65px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -26,6 +29,7 @@ $subColor: #ffbf17;
 	left: 0;
 	top: 0;
 	z-index: 100;
+	padding: 9px;
 	#gnb{
 		display: flex;
 		justify-content: space-between;
@@ -39,14 +43,14 @@ $subColor: #ffbf17;
 			align-items: center;
 			.logo-text{color: inherit;}
 			.logo-img{width: 35px;height: 47px;margin: 0 5px;}
-		 	&::after{
-				content: "";
-				display: inline-block;
-				width: 1px;
-				height: 30px;
-				background: #f0f0f0;
-				margin-left: 20px;
-			}
+		 // 	&::after{
+			// 	content: "";
+			// 	display: inline-block;
+			// 	width: 1px;
+			// 	height: 30px;
+			// 	background: #f0f0f0;
+			// 	margin-left: 20px;
+			// }
 		}
 		ul{
 			display: flex;
@@ -70,16 +74,16 @@ $subColor: #ffbf17;
 			padding: 5px 10px;
 			background: #e5622e;
 			color: inherit;
-			&::before{
-				content: "";
-				display: inline-block;
-				width: 1px;
-				height: 30px;
-				background: #fff;
-				position: absolute;
-				top: calc(50% - 15px);
-				right: 120px;
-			}
+			// &::before{
+			// 	content: "";
+			// 	display: inline-block;
+			// 	width: 1px;
+			// 	height: 30px;
+			// 	background: #fff;
+			// 	position: absolute;
+			// 	top: calc(50% - 15px);
+			// 	right: 120px;
+			// }
 		}
 		.lang{
 			background: transparent !important;
@@ -117,6 +121,36 @@ $subColor: #ffbf17;
 			margin: 0 10px;
 		}
 	}
+    .toggle-menu{
+        position: absolute;
+        width: 35px;
+        height: 20px;
+		right: 20px;
+		top: calc(50% - 10px);
+        padding: 5px;
+        transition: .4s;
+        cursor: pointer;
+        padding: 10px 5px 10px 5px;
+        @include pc () {display: none;}
+        >span{
+            width: 100%;
+            height: 3px;
+            background: #fff;
+            position: absolute;
+            transition: .5s;
+            left: 0;
+            &:nth-child(1){top: 0;}
+            &:nth-child(2){top: 50%;}
+            &:nth-child(3){top: 100%;}
+        }
+        &.active{
+            >span{
+                &:nth-child(1){width: 0%;opacity: 0;}
+                &:nth-child(2){transform: rotate3d(1, 1, 100, 45deg);}
+                &:nth-child(3){transform: rotate3d(1, 1, 100, -45deg) translateY(-6.5px) translateX(6.5px);}
+        	}
+        }
+    }
 }
 
 
@@ -136,6 +170,7 @@ $subColor: #ffbf17;
 		width: 100%;
 		text-align: center;
 		position: relative;
+		margin: 0 10px;
 		.content-title{
 			font-size: 60px;
 			font-weight: bold;
@@ -184,6 +219,10 @@ $subColor: #ffbf17;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	@include mobile () {
+		flex-direction: column;
+		padding: 40px 0;
+	}
 	.sec-info{
 		.sec-title{
 			color: #fff;
@@ -233,6 +272,7 @@ $subColor: #ffbf17;
 	margin: 0 auto;
 	position: relative;
 	top: -50px;
+	padding: 0 10px;
 	&::before{
 		content: "";
 		display: inline-block;
@@ -264,7 +304,7 @@ $subColor: #ffbf17;
 			}
 		}
 		.graph{
-			flex: 1.1;
+			flex: .35;
 			margin-right: 10px;
 			&::before{
 				content: "암호화폐 시총 점유율";
@@ -272,7 +312,7 @@ $subColor: #ffbf17;
 			}
 		}
 		.coin-calander{
-			flex: 1.9;
+			flex: .65;
 			&::before{
 				content: "오늘의 코인 일정 X.XX";
 			}
@@ -283,9 +323,11 @@ $subColor: #ffbf17;
 	/* 컨테이너 wrap */
 
 .container_wr{
-	display: flex;
-	justify-content: space-between;
-	flex-direction: row-reverse;
+	@include pc () {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row-reverse;
+	}
 	margin: 0 auto;
 	position: relative;
 	top: -40px;
@@ -293,6 +335,9 @@ $subColor: #ffbf17;
 	.container{
 		width: 975px;
 		position: relative;
+		@include tablet () {
+			width: 100vw;
+		}
 	}
 }
 
@@ -312,6 +357,10 @@ $subColor: #ffbf17;
 	position: absolute;
 	left: calc(50vw - 190px);
 	top: calc(45vh - 270px);
+	@include mobile () {
+		width: 100%;
+		left: 0;
+	}
 	.login-title{
 		font-size: 32px;
 		font-weight: bold;
@@ -357,16 +406,27 @@ $subColor: #ffbf17;
 	/* aside */
 
 .aside-wrap{
-	margin-right: 20px;
-	padding: 10px;
-	background: #fff;
+	@include pc () {margin-right: 20px;}
 	font-size: 15px;
 	min-width: 205px;
-	max-height: 480px;
+	@include tablet () {
+		position: fixed;
+		transition: .4s;
+		right: -205px;
+		top: 100px;
+	}
+	&.active{
+		right: 0px;
+	}
 	.aside-box{
+		padding: 10px;
+		background: #fff;
 		display: flex;
 		flex-direction: column;
 		text-align: left;
+		@include tablet () {
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+		}
 		.aside-login{
 			height: 30px;
 			background: $color;
@@ -406,18 +466,20 @@ $subColor: #ffbf17;
 }
 
 	/* 게시판 */
-
 .board-serach-frm{
-	height: 100px;
 	background: #fff;
 	display: flex;
 	flex-direction: column;
-	padding: 0 20px;
+	padding: 5px 20px 5px 20px;
+	@include mobile () {
+		padding: 0 10px;
+	}
 	.search-top-wrap{
 		display: flex;
 		height: 100%;
 		justify-content: space-between;
 		align-items: center;
+		flex-wrap: wrap;
 		.board-title{
 			font-size: 16px;
 			font-weight: bold;
@@ -432,6 +494,8 @@ $subColor: #ffbf17;
 		justify-content: space-between;
 		height: 100%;
 		align-items: center;
+		flex-wrap: wrap;
+		padding-bottom: 5px;
 		.sort-list{
 			display: flex;
 			li{
@@ -458,7 +522,6 @@ $subColor: #ffbf17;
 		padding: 0 10px;
 		border-bottom: 1px solid #d8d8d8;
 		.list-info{
-			width: 250px;
 			display: flex;
 			.list-idx{
 				display: flex;
@@ -470,6 +533,9 @@ $subColor: #ffbf17;
 			.list-subinfo{
 				.list-title{
 					font-size: 16px;
+					@include tablet () {
+						font-size: 14px;
+					}
 					.cnt_comment{
 						color: $color;
 						font-size: 14px;
@@ -501,23 +567,30 @@ $subColor: #ffbf17;
 	}
 }
 
+//bo_sch
+#bo_sch{
+	margin: 10px 0 10px 0;
+	form{
+		display: flex;
+	}
+}
+
 //view 페이지 하단 리스트
 
 .v-bottom-list{
 	height: 50px;
 	display: flex;
 	align-items: center;
-	text-align: center;
 	border-bottom: 1px solid #d8d8d8;
 	div{
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
-	.v-wrgood{flex: .1;}
-	.v-subject{flex: .7;justify-content: space-between;}
-	.v-datetime{flex:.1;}
-	.v-writer{flex:.1;}
+	.v-wrgood{flex: .05;flex-direction: column;}
+	.v-subject{flex: .6;justify-content: space-between;padding-left: 10px;}
+	.v-datetime{flex:.2;}
+	.v-writer{flex:.15;}
 }
 
 /* 게시물이 존재하지 않을 때 */

@@ -10,7 +10,7 @@ $info = sql_query("SELECT bo_table,bo_subject FROM g5_board where gr_id='info' o
 
 
 <!-- 로그인 후 아웃로그인 시작 { -->
-<?php if (isset($_GET['bo_table']) || strpos($_SERVER['PHP_SELF'], "new") || strpos($_SERVER['PHP_SELF'], "search")): ?>
+<?php if (strpos($_SERVER['PHP_SELF'], "bbs")): ?>
 <div class="aside-wrap">
     <section class="aside-box">
         <a href="<?php echo G5_BBS_URL ?>/logout.php" class="aside-login">로그아웃</a>

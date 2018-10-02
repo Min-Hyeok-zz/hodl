@@ -24,17 +24,17 @@ if (isset($_SESSION['ss_mb_id'])) {
 <div id="header">
     <nav id="gnb">
         <div class="logo"><a href="<?php echo G5_URL ?>" class="logo-text"><img src="<?php echo G5_IMG_URL ?>/logo.png" alt="logo" class="logo-img"> HODL.RIP</a></div>
-        <ul>
+<!--         <ul>
             <li><a href="#!">Fixel</a></li>
             <li><a href="#!">CoinMarketCap</a></li>
-        </ul>
+        </ul> -->
     </nav>
     <div class="subMenu">
-        <i class="fas fa-language"></i>
+ <!--        <i class="fas fa-language"></i>
         <select name="lang" class="lang">
             <option value="korean" style="background: transparent;">KOREAN</option>
             <option value="english" style="background: transparent;">ENGLISH</option>
-        </select>
+        </select> -->
         <?php if (isset($_SESSION['ss_mb_id'])): ?>
             <a href="<?php echo G5_BBS_URL ?>/logout.php" class="login-btn">LOGOUT</a>
         <?php else: ?>
@@ -52,15 +52,19 @@ if (isset($_SESSION['ss_mb_id'])) {
         <li><a href="#!">코인일정</a></li>
         <li><a href="<?php echo G5_BBS_URL ?>/new.php">커뮤니티</a></li>
     </ul>
+<?php if (strpos($_SERVER['PHP_SELF'], "bbs")): ?>
+    <div class="toggle-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+<?php endif ?>
 </div>
 
 <!-- 비주얼 섹션 -->
 <?php if (!strpos($_SERVER['PHP_SELF'], "bbs")): ?>
     <div class="visual-section">
         <div class="visual-content">
-            <?php if (isset($_SESSION['ss_mb_id'])): ?>
-            <p class="point color">나의 활동점수 <?php echo $mypoint; ?> 점</p>
-            <?php endif ?>
             <p class="content-title">HODL.RIP</p>
             <p class="content-subtitle color">Cryptocurrencies By Market Capitalization</p>
             <form action="<?php echo G5_BBS_URL ?>/search.php?" method="get" class="index-search">
@@ -100,15 +104,9 @@ if (isset($_SESSION['ss_mb_id'])) {
 
 <!-- 콘텐츠 시작 { -->
 <div id="wrapper">
-        <?php
-            $style = "";
-            if (!strpos($_SERVER['PHP_SELF'], "bbs")) {
-                $style = "margin: 0 auto;";
-            }
-        ?>
         
     <div id="container_wr" class="container_wr">
    
-    <div class="container" style="<?php echo $style ?>">
+    <div class="container">
         <?php if (!defined("_INDEX_")) { ?><?php } ?>
 

@@ -12,7 +12,8 @@ include_once('./_head.php');
 <script src="<?php echo G5_JS_URL ?>/vue.js"></script>
 <div id="app">
     <p v-text="res"></p>
-    <button onclick="test();">테스트</button>
+    <button onclick="test();">값변경</button>
+    <button onclick="aa();">출력</button>
 </div>
   <script language="javascript" type="text/javascript">
 
@@ -74,6 +75,10 @@ include_once('./_head.php');
   var a = "hello";
 
   function test () {
+    this.a = "asd";
+  }
+
+  function aa () {
     alert(this.a);
   }
 

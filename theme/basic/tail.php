@@ -28,14 +28,12 @@ if (G5_IS_MOBILE) {
     <div class="footer-content">
         <ul class="footer-menu">
             <li>
-                <a href="<?php echo G5_BBS_URL; ?>/content.php?co_id=company">ABOUT HOEL.RIP</a>
-            </li>
-            <li>
                 <a href="<?php echo G5_BBS_URL; ?>/content.php?co_id=provision">서비스이용약관</a>
             </li>
             <li>
                 <a href="<?php echo G5_BBS_URL; ?>/content.php?co_id=privacy">개인정보처리방침</a>
-            </li>문의 메일 : hodl@naver.com</ul>
+            </li>문의 메일 : hodl@naver.com
+        </ul>
         <footer>Copyright &copy; 2018 HODL.RIP all rights reserved.</footer>
     </div>
     <div class="footer-social-btn">

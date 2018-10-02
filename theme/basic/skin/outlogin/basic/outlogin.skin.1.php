@@ -11,7 +11,7 @@ $info = sql_query("SELECT bo_table,bo_subject FROM g5_board where gr_id='info' o
 ?>
 
 <!-- 로그인 전 아웃로그인 시작 { -->
-<?php if (isset($_GET['bo_table']) || strpos($_SERVER['PHP_SELF'], "new") || strpos($_SERVER['PHP_SELF'], "search")): ?>
+<?php if (strpos($_SERVER['PHP_SELF'], "bbs")): ?>
 <div class="aside-wrap">
     
     <!-- 여기는 개발할 때 관리자 로그인 때문에 만듬 나중에 지울꺼 -->
@@ -23,6 +23,7 @@ $info = sql_query("SELECT bo_table,bo_subject FROM g5_board where gr_id='info' o
             <input type="text" id="ol_id" name="mb_id" required maxlength="20" placeholder="아이디">
             <label for="ol_pw" id="ol_pwlabel" class="sound_only">비밀번호<strong>필수</strong></label>
             <input type="password" name="mb_password" id="ol_pw" required maxlength="20" placeholder="비밀번호">
+            <input type="submit" style="display: none;">
         </div>
     </fieldset>
     </form>
