@@ -8,7 +8,7 @@
 html, body { overflow-x: hidden; }
 
 /* 헤더 */
-#header { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background: -webkit-gradient(linear, left top, right top, from(#ff9810), to(#ffbf17)); background: linear-gradient(to right, #ff9810, #ffbf17); padding: 0 20px; font-family: 'Arial'; position: fixed; left: 0; top: 0; z-index: 100; padding: 9px; }
+#header { width: 100%; height: 65px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background: -webkit-gradient(linear, left top, right top, from(#ff9810), to(#ffbf17)); background: linear-gradient(to right, #ff9810, #ffbf17); padding: 0 3%; font-family: 'Arial'; position: fixed; left: 0; top: 0; z-index: 100; }
 
 #header #gnb { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
@@ -37,7 +37,7 @@ html, body { overflow-x: hidden; }
 
 .head-sub-box .head-sub-list li > a { margin: 0 10px; }
 
-.head-sub-box .toggle-menu { position: absolute; width: 35px; height: 20px; right: 20px; top: calc(50% - 10px); padding: 5px; -webkit-transition: .4s; transition: .4s; cursor: pointer; padding: 10px 5px 10px 5px; }
+.head-sub-box .toggle-menu { position: absolute; width: 35px; height: 20px; right: 20px; top: calc(50% - 12px); -webkit-transition: .4s; transition: .4s; cursor: pointer; padding: 10px 5px 10px 5px; }
 
 @media (min-width: 1221px) { .head-sub-box .toggle-menu { display: none; } }
 
@@ -90,7 +90,7 @@ html, body { overflow-x: hidden; }
 .visual-sec .sec-search .form-btn { width: 40px; height: 30px; background: #ff9810; position: absolute; right: 5px; bottom: 5px; border: none; outline: none; border-radius: 5px; font-size: 16px; font-weight: bold; color: #fff; }
 
 /* 메인 페이지 컨텐츠 */
-.main-content { width: 550px; margin: 0 auto; position: relative; top: -50px; padding: 0 10px; }
+.main-content { max-width: 550px; width: 100%; margin: 0 auto; position: relative; top: -50px; padding: 0 10px; }
 
 .main-content::before { content: ""; display: inline-block; width: 100%; height: 3px; background: #ff9810; position: relative; top: 3px; }
 
@@ -111,11 +111,13 @@ html, body { overflow-x: hidden; }
 .main-content .content-box .coin-calander::before { content: "오늘의 코인 일정 X.XX"; }
 
 /* 컨테이너 wrap */
-.container_wr { margin: 0 auto; position: relative; top: -40px; min-height: 480px; }
+.container_wr { position: relative; top: -40px; }
 
-@media (min-width: 1221px) { .container_wr { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; } }
+@media (min-width: 1221px) { .container_wr { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; margin: 0 auto; } }
 
 .container_wr .container { width: 975px; position: relative; }
+
+@media (min-width: 1221px) { .container_wr .container { margin: 0 auto; } }
 
 @media (max-width: 1220px) { .container_wr .container { width: 100vw; } }
 
@@ -141,7 +143,7 @@ html, body { overflow-x: hidden; }
 
 @media (min-width: 1221px) { .aside-wrap { margin-right: 20px; } }
 
-@media (max-width: 1220px) { .aside-wrap { position: fixed; -webkit-transition: .4s; transition: .4s; right: -205px; top: 100px; } }
+@media (max-width: 1220px) { .aside-wrap { position: fixed; width: 205px; -webkit-transition: .4s; transition: .4s; right: -205px; top: 100px; } }
 
 .aside-wrap.active { right: 0px; }
 
@@ -162,17 +164,21 @@ html, body { overflow-x: hidden; }
 .aside-wrap .aside-box .aside-menu::before { content: ""; display: inline-block; width: 110%; margin-left: -5%; height: 1px; background: rgba(0, 0, 0, 0.2); }
 
 /* 게시판 */
-.board-serach-frm { background: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding: 5px 20px 5px 20px; }
+.board-serach-frm { background: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding: 10px 20px 5px 20px; }
 
 @media (max-width: 760px) { .board-serach-frm { padding: 0 10px; } }
 
 .board-serach-frm .search-top-wrap { display: -webkit-box; display: -ms-flexbox; display: flex; height: 100%; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+
+@media (max-width: 760px) { .board-serach-frm .search-top-wrap { -ms-flex-pack: distribute; justify-content: space-around; } }
 
 .board-serach-frm .search-top-wrap .board-title { font-size: 16px; font-weight: bold; }
 
 .board-serach-frm .search-top-wrap .write-btn { color: #ff9810; font-size: 20px; }
 
 .board-serach-frm .search-bottom-wrap { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; height: 100%; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-wrap: wrap; flex-wrap: wrap; padding-bottom: 5px; }
+
+@media (max-width: 760px) { .board-serach-frm .search-bottom-wrap { -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin-top: 10px; } }
 
 .board-serach-frm .search-bottom-wrap .sort-list { display: -webkit-box; display: -ms-flexbox; display: flex; }
 
