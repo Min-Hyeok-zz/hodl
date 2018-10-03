@@ -77,7 +77,7 @@ html, body { overflow-x: hidden; }
 
 @media (max-width: 760px) { .visual-sec { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding: 40px 0; } }
 
-.visual-sec .sec-info .sec-title { color: #fff; font-size: 50px; }
+.visual-sec .sec-info .sec-title { color: #fff; font-size: 50px; font-weight: lighter; }
 
 .visual-sec .sec-info .sec-title span { font-weight: bold; }
 
@@ -115,7 +115,7 @@ html, body { overflow-x: hidden; }
 
 @media (min-width: 1221px) { .container_wr { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse; margin: 0 auto; } }
 
-.container_wr .container { width: 975px; position: relative; }
+.container_wr .container { width: 975px; position: relative; min-height: 480px; }
 
 @media (min-width: 1221px) { .container_wr .container { margin: 0 auto; } }
 
@@ -234,10 +234,14 @@ html, body { overflow-x: hidden; }
 .write-wrap { margin-top: 40px; }
 
 /* footer */
-.footer { width: 100%; height: 100px; background: #252525; color: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 0 10px; }
+.footer { width: 100%; height: 100px; background: #252525; color: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 0 10px; }
 
 .footer .footer-menu { display: -webkit-box; display: -ms-flexbox; display: flex; }
 
+@media (max-width: 760px) { .footer .footer-menu { -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; text-align: center; font-size: 8px; } }
+
 .footer .footer-menu li { margin-right: 20px; }
 
-.footer .footer-social-btn { font-size: 24px; -ms-flex-item-align: end; align-self: flex-end; margin-bottom: 10px; }
+@media (max-width: 760px) { .footer .footer-menu li { margin-right: 10px; } }
+
+.footer .footer-social-btn { font-size: 24px; float: right; margin-bottom: 10px; }

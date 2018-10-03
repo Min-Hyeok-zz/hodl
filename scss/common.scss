@@ -226,6 +226,7 @@ html,body{
 		.sec-title{
 			color: #fff;
 			font-size: 50px;
+			font-weight: lighter;
 			span{
 				font-weight: bold;
 			}
@@ -334,6 +335,7 @@ html,body{
 	.container{
 		width: 975px;
 		position: relative;
+		min-height: 480px;
 		@include pc () {margin: 0 auto;}
 		@include tablet () {
 			width: 100vw;
@@ -628,18 +630,26 @@ html,body{
 	background: #252525;
 	color: #fff;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
 	padding: 0 10px;
 	.footer-menu{
 		display: flex;
+		@include mobile () {
+			align-items:center;
+			justify-content: center;
+			text-align:center;
+			font-size: 8px;
+		}
 		li{
 			margin-right: 20px;
+			@include mobile () {margin-right: 10px;}
 		}
 	}
 	.footer-social-btn{
 		font-size: 24px;
-		align-self: flex-end;
+		float: right;
 		margin-bottom: 10px;
 	}
 }
