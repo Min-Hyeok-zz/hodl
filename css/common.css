@@ -90,23 +90,25 @@ html, body { overflow-x: hidden; }
 .visual-sec .sec-search .form-btn { width: 40px; height: 30px; background: #ff9810; position: absolute; right: 5px; bottom: 5px; border: none; outline: none; border-radius: 5px; font-size: 16px; font-weight: bold; color: #fff; }
 
 /* 메인 페이지 컨텐츠 */
-.main-content { max-width: 550px; width: 100%; margin: 0 auto; position: relative; top: -50px; padding: 0 10px; }
+.main-content { max-width: 1000px; width: 100%; margin: 0 auto; position: relative; top: -50px; padding: 0 10px; }
 
 .main-content::before { content: ""; display: inline-block; width: 100%; height: 3px; background: #ff9810; position: relative; top: 3px; }
 
-.main-content .banner { height: 90px; background: #3f3f3f; }
+.main-content .banner { height: 150px; background: #3f3f3f; }
 
 .main-content .content-box { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-top: 10px; }
 
-.main-content .content-box div { background: #3f3f3f; color: #fff; height: 310px; }
+@media (max-width: 760px) { .main-content .content-box { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; } }
+
+.main-content .content-box div { background: #3f3f3f; color: #fff; height: 310px; margin-bottom: 40px; }
 
 .main-content .content-box div::before { display: inline-block; width: 100%; height: 25px; background: #ff9810; line-height: 25px; padding: 0 10px; }
 
-.main-content .content-box .graph { -webkit-box-flex: .35; -ms-flex: .35; flex: .35; margin-right: 10px; }
+.main-content .content-box .graph { width: 100%; margin-right: 10px; }
 
 .main-content .content-box .graph::before { content: "암호화폐 시총 점유율"; text-align: center; }
 
-.main-content .content-box .coin-calander { -webkit-box-flex: .65; -ms-flex: .65; flex: .65; }
+.main-content .content-box .coin-calander { width: 100%; }
 
 .main-content .content-box .coin-calander::before { content: "오늘의 코인 일정 X.XX"; }
 
@@ -128,7 +130,7 @@ html, body { overflow-x: hidden; }
 
 .login-frm .login-title { font-size: 32px; font-weight: bold; text-align: center; display: inline-block; vertical-align: middle; }
 
-.login-frm .sns-box { -webkit-box-flex: .6; -ms-flex: .6; flex: .6; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.login-frm .sns-box { height: 50%; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
 .login-frm .sns-box .sns-login-btn { display: inline-block; width: 100%; height: 40px; border-radius: 5px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-size: 18px; font-family: Arial; -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
 

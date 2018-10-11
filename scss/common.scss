@@ -269,7 +269,7 @@ html,body{
 	/* 메인 페이지 컨텐츠 */
 
 .main-content{
-	max-width: 550px;
+	max-width: 1000px;
 	width: 100%;
 	margin: 0 auto;
 	position: relative;
@@ -285,17 +285,19 @@ html,body{
 		top: 3px;
 	}
 	.banner{
-		height: 90px;
+		height: 150px;
 		background: #3f3f3f;
 	}
 	.content-box{
 		display: flex;
 		justify-content: space-between;
 		margin-top: 10px;
+		@include mobile () {flex-direction: column;}
 		div{
 			background: #3f3f3f;
 			color: #fff;
 			height: 310px;
+			margin-bottom: 40px;
 			&::before{
 				display: inline-block;
 				width: 100%;
@@ -306,7 +308,7 @@ html,body{
 			}
 		}
 		.graph{
-			flex: .35;
+			width: 100%;
 			margin-right: 10px;
 			&::before{
 				content: "암호화폐 시총 점유율";
@@ -314,7 +316,7 @@ html,body{
 			}
 		}
 		.coin-calander{
-			flex: .65;
+			width: 100%;
 			&::before{
 				content: "오늘의 코인 일정 X.XX";
 			}
@@ -373,7 +375,7 @@ html,body{
 		vertical-align: middle;
 	}
 	.sns-box{
-		flex: .6;
+		height: 50%;
 		display: flex;
 		justify-content: space-around;
 		flex-direction: column;
