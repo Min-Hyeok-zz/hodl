@@ -106,10 +106,12 @@ if($is_member && $req_mode == 'confirm' && $req_service == $service) {
         echo 'document.fconfirm.submit();'.PHP_EOL;
         echo 'window.close();'.PHP_EOL;
         echo '</script>';
+        set_session('ss_mb_key',md5($member['mb_datetime'] . get_real_client_ip() . $_SERVER['HTTP_USER_AGENT']));
         exit;
     } else {
         unset($member);
-
+        set_session('ss_mb_key',md5($member['mb_datetime'] . get_real_client_ip() . $_SERVER['HTTP_USER_AGENT']));
+        
         set_session('ss_mb_id', $req_mb_id);
         set_session('ss_oauth_member_'.get_session('ss_oauth_member_no').'_info', '');
         set_session('ss_oauth_member_no', '');

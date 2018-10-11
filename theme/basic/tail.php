@@ -32,7 +32,10 @@ if (G5_IS_MOBILE) {
             </li>
             <li>
                 <a href="<?php echo G5_BBS_URL; ?>/content.php?co_id=privacy">개인정보처리방침</a>
-            </li>문의 메일 : hodl@naver.com
+            </li>
+            <li>
+                <a href="#!">문의 메일 : hodl@naver.com</a>
+            </li>
         </ul>
         <footer>Copyright &copy; 2018 HODL.RIP all rights reserved.</footer>
     </div>

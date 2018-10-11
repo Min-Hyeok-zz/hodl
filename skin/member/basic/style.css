@@ -1,3 +1,4 @@
+
 @charset "utf-8";
 
 /* ### 기본 스타일 커스터마이징 시작 ### */
@@ -31,7 +32,7 @@
 .mbskin a.btn_admin:focus, .mbskin a.btn_admin:hover {}
 
 /* 기본박스 */
-.mbskin{position: relative;margin:100px auto 0;border:1px solid #ddd;width:400px;background:#fff;text-align:center;
+.mbskin{position: relative;border:1px solid #ddd;width: 100%;background:#fff;text-align:center;
 }
 .mbskin:before,.mbskin:after{
 content:"";

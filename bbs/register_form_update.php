@@ -18,7 +18,9 @@ if ($w == 'u' && $is_admin == 'super') {
 }
 
 if (!chk_captcha()) {
-    alert('자동등록방지 숫자가 틀렸습니다.');
+    echo "<script>alert('자동등록방지 숫자가 틀렸습니다.');history.back();</script>";
+    return false;
+    // alert('자동등록방지 숫자가 틀렸습니다.');
 }
 
 if($w == 'u')

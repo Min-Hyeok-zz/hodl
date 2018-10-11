@@ -18,7 +18,7 @@ $social_oauth_url = G5_PLUGIN_URL.'/oauth/login.php?service=';
         <a href="<?php echo $social_oauth_url.'kakao'; ?>" target="_blank" class="sns-login-btn kakao-login"><i class="kakao-logo"></i>&nbsp;kakaotalk login</a>
         <?php } ?>
         <?php if(defined('G5_FACEBOOK_CLIENT_ID') && G5_FACEBOOK_CLIENT_ID) { ?>
-        <a href="<?php echo $social_oauth_url.'facebook'; ?>" target="_blank" class="sns-login-btn facebook-login"><i class="fab fa-facebook-square"> </i> &nbsp; facebook login</a>
+        <a href="<?php echo $social_oauth_url.'facebook'; ?>" target="_blank" class="sns-login-btn facebook-login"><i class="fab fa-facebook-square" target="_blank"> </i> &nbsp; facebook login</a>
         <?php } ?>
         <?php if(defined('G5_GOOGLE_CLIENT_ID') && G5_GOOGLE_CLIENT_ID) { ?>
         <a href="<?php echo $social_oauth_url.'google'; ?>" target="_blank" class="sns-login-btn google-login"><i class="fab fa-google"></i>&nbsp; google login</a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 18-10-02 15:49
+-- 생성 시간: 18-10-11 03:53
 -- 서버 버전: 10.1.35-MariaDB
 -- PHP 버전: 7.2.9
 
@@ -164,7 +164,7 @@ INSERT INTO `g5_board` (`bo_table`, `gr_id`, `bo_subject`, `bo_mobile_subject`, 
 ('dev', 'community', '개발', '', 'both', '', 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 5, 1, -10, 0, '', 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 100, 60, 30, 15, 15, 24, 100, 600, 'basic', 'basic', '_head.php', '_tail.php', '', '', '', '', '', 4, 202, 150, 125, 100, 1048576, 1, 1, 0, 0, 0, 0, 0, 0, 0, '', 2, 0, '', 0, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 ('ico', 'info', 'ICO리뷰', '', 'both', '', 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 100, 60, 30, 15, 15, 24, 100, 600, 'basic', 'basic', '_head.php', '_tail.php', '', '', '', '', '', 4, 202, 150, 125, 100, 1048576, 1, 1, 0, 0, 0, 0, 0, 0, 0, '', 2, 0, '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 ('news', 'info', '유저 뉴스', '', 'both', '', 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 100, 60, 30, 15, 15, 24, 100, 600, 'basic', 'basic', '_head.php', '_tail.php', '', '', '', '', '', 4, 202, 150, 125, 100, 1048576, 1, 1, 0, 0, 0, 0, 0, 0, 0, '', 2, 0, '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-('tip', 'info', '팁과 노하우', '', 'both', '', 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 100, 60, 30, 15, 15, 24, 100, 600, 'basic', 'basic', '_head.php', '_tail.php', '', '', '', '', '', 4, 202, 150, 125, 100, 1048576, 1, 1, 0, 0, 0, 0, 0, 0, 0, '', 2, 0, '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+('tip', 'info', '팁과 노하우', '', 'both', '', 1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 100, 60, 30, 15, 15, 24, 100, 600, 'basic', 'basic', '_head.php', '_tail.php', '', '', '', '', '', 4, 202, 150, 125, 100, 1048576, 1, 1, 0, 2, 0, 0, 0, 0, 0, '', 2, 0, '', 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -209,7 +209,8 @@ CREATE TABLE `g5_board_good` (
 INSERT INTO `g5_board_good` (`bg_id`, `bo_table`, `wr_id`, `mb_id`, `bg_flag`, `bg_datetime`) VALUES
 (1, 'qa', 2, 'admin', 'good', '2018-09-16 12:58:26'),
 (2, 'qa', 27, 'fcb_2207388702871157', 'good', '2018-09-21 16:32:19'),
-(3, 'qa', 31, 'fcb_2207388702871157', 'nogood', '2018-09-23 14:01:21');
+(3, 'qa', 31, 'fcb_2207388702871157', 'nogood', '2018-09-23 14:01:21'),
+(4, 'tip', 7, 'admin', 'good', '2018-10-10 10:51:11');
 
 -- --------------------------------------------------------
 
@@ -225,6 +226,14 @@ CREATE TABLE `g5_board_new` (
   `bn_datetime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `mb_id` varchar(20) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 테이블의 덤프 데이터 `g5_board_new`
+--
+
+INSERT INTO `g5_board_new` (`bn_id`, `bo_table`, `wr_id`, `wr_parent`, `bn_datetime`, `mb_id`) VALUES
+(44, 'tip', 6, 6, '2018-10-08 09:50:10', 'admin'),
+(45, 'tip', 7, 7, '2018-10-08 09:58:50', 'fcb_2207388702871157');
 
 -- --------------------------------------------------------
 
@@ -252,6 +261,7 @@ CREATE TABLE `g5_config` (
   `cf_title` varchar(255) NOT NULL DEFAULT '',
   `cf_theme` varchar(255) NOT NULL DEFAULT '',
   `cf_admin` varchar(255) NOT NULL DEFAULT '',
+  `cf_admin_add` varchar(255) NOT NULL DEFAULT '',
   `cf_admin_email` varchar(255) NOT NULL DEFAULT '',
   `cf_admin_email_name` varchar(255) NOT NULL DEFAULT '',
   `cf_add_script` text NOT NULL,
@@ -405,8 +415,8 @@ CREATE TABLE `g5_config` (
 -- 테이블의 덤프 데이터 `g5_config`
 --
 
-INSERT INTO `g5_config` (`cf_title`, `cf_theme`, `cf_admin`, `cf_admin_email`, `cf_admin_email_name`, `cf_add_script`, `cf_use_point`, `cf_point_term`, `cf_use_copy_log`, `cf_use_email_certify`, `cf_login_point`, `cf_cut_name`, `cf_nick_modify`, `cf_new_skin`, `cf_new_rows`, `cf_search_skin`, `cf_connect_skin`, `cf_faq_skin`, `cf_read_point`, `cf_write_point`, `cf_comment_point`, `cf_download_point`, `cf_write_pages`, `cf_mobile_pages`, `cf_link_target`, `cf_delay_sec`, `cf_filter`, `cf_possible_ip`, `cf_intercept_ip`, `cf_analytics`, `cf_add_meta`, `cf_syndi_token`, `cf_syndi_except`, `cf_member_skin`, `cf_use_homepage`, `cf_req_homepage`, `cf_use_tel`, `cf_req_tel`, `cf_use_hp`, `cf_req_hp`, `cf_use_addr`, `cf_req_addr`, `cf_use_signature`, `cf_req_signature`, `cf_use_profile`, `cf_req_profile`, `cf_register_level`, `cf_register_point`, `cf_icon_level`, `cf_use_recommend`, `cf_recommend_point`, `cf_leave_day`, `cf_search_part`, `cf_email_use`, `cf_email_wr_super_admin`, `cf_email_wr_group_admin`, `cf_email_wr_board_admin`, `cf_email_wr_write`, `cf_email_wr_comment_all`, `cf_email_mb_super_admin`, `cf_email_mb_member`, `cf_email_po_super_admin`, `cf_prohibit_id`, `cf_prohibit_email`, `cf_new_del`, `cf_memo_del`, `cf_visit_del`, `cf_popular_del`, `cf_optimize_date`, `cf_use_member_icon`, `cf_member_icon_size`, `cf_member_icon_width`, `cf_member_icon_height`, `cf_member_img_size`, `cf_member_img_width`, `cf_member_img_height`, `cf_login_minutes`, `cf_image_extension`, `cf_flash_extension`, `cf_movie_extension`, `cf_formmail_is_member`, `cf_page_rows`, `cf_mobile_page_rows`, `cf_visit`, `cf_max_po_id`, `cf_stipulation`, `cf_privacy`, `cf_open_modify`, `cf_memo_send_point`, `cf_mobile_new_skin`, `cf_mobile_search_skin`, `cf_mobile_connect_skin`, `cf_mobile_faq_skin`, `cf_mobile_member_skin`, `cf_captcha_mp3`, `cf_editor`, `cf_cert_use`, `cf_cert_ipin`, `cf_cert_hp`, `cf_cert_kcb_cd`, `cf_cert_kcp_cd`, `cf_lg_mid`, `cf_lg_mert_key`, `cf_cert_limit`, `cf_cert_req`, `cf_sms_use`, `cf_sms_type`, `cf_icode_id`, `cf_icode_pw`, `cf_icode_server_ip`, `cf_icode_server_port`, `cf_googl_shorturl_apikey`, `cf_social_login_use`, `cf_social_servicelist`, `cf_payco_clientid`, `cf_payco_secret`, `cf_facebook_appid`, `cf_facebook_secret`, `cf_twitter_key`, `cf_twitter_secret`, `cf_google_clientid`, `cf_google_secret`, `cf_naver_clientid`, `cf_naver_secret`, `cf_kakao_rest_key`, `cf_kakao_client_secret`, `cf_kakao_js_apikey`, `cf_captcha`, `cf_recaptcha_site_key`, `cf_recaptcha_secret_key`, `cf_1_subj`, `cf_2_subj`, `cf_3_subj`, `cf_4_subj`, `cf_5_subj`, `cf_6_subj`, `cf_7_subj`, `cf_8_subj`, `cf_9_subj`, `cf_10_subj`, `cf_1`, `cf_2`, `cf_3`, `cf_4`, `cf_5`, `cf_6`, `cf_7`, `cf_8`, `cf_9`, `cf_10`) VALUES
-('HODL.RIP', 'basic', 'admin', 'admin@domain.com', 'HODL.RIP', '', 1, 0, 1, 0, 100, 15, 60, 'basic', 15, 'basic', 'basic', 'basic', 0, 0, 0, 0, 10, 5, '_blank', 30, '18아,18놈,18새끼,18뇬,18노,18것,18넘,개년,개놈,개뇬,개새,개색끼,개세끼,개세이,개쉐이,개쉑,개쉽,개시키,개자식,개좆,게색기,게색끼,광뇬,뇬,눈깔,뉘미럴,니귀미,니기미,니미,도촬,되질래,뒈져라,뒈진다,디져라,디진다,디질래,병쉰,병신,뻐큐,뻑큐,뽁큐,삐리넷,새꺄,쉬발,쉬밸,쉬팔,쉽알,스패킹,스팽,시벌,시부랄,시부럴,시부리,시불,시브랄,시팍,시팔,시펄,실밸,십8,십쌔,십창,싶알,쌉년,썅놈,쌔끼,쌩쑈,썅,써벌,썩을년,쎄꺄,쎄엑,쓰바,쓰발,쓰벌,쓰팔,씨8,씨댕,씨바,씨발,씨뱅,씨봉알,씨부랄,씨부럴,씨부렁,씨부리,씨불,씨브랄,씨빠,씨빨,씨뽀랄,씨팍,씨팔,씨펄,씹,아가리,아갈이,엄창,접년,잡놈,재랄,저주글,조까,조빠,조쟁이,조지냐,조진다,조질래,존나,존니,좀물,좁년,좃,좆,좇,쥐랄,쥐롤,쥬디,지랄,지럴,지롤,지미랄,쫍빱,凸,퍽큐,뻑큐,빠큐,ㅅㅂㄹㅁ', '', '', '', '', '', '', 'basic', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1000, 2, 0, 0, 30, 10000, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'admin,administrator,관리자,운영자,어드민,주인장,webmaster,웹마스터,sysop,시삽,시샵,manager,매니저,메니저,root,루트,su,guest,방문객', '', 30, 180, 180, 180, '2018-10-02', 2, 5000, 22, 22, 50000, 60, 60, 10, 'gif|jpg|jpeg|png', 'swf', 'asx|asf|wmv|wma|mpg|mpeg|mov|avi|mp3', 1, 15, 15, '오늘:5,어제:,최대:5,전체:19', 1, '해당 홈페이지에 맞는 회원가입약관을 입력합니다.', '해당 홈페이지에 맞는 개인정보처리방침을 입력합니다.', 0, 500, 'basic', 'basic', 'basic', 'basic', 'basic', 'basic', 'smarteditor2', 0, '', '', '', '', '', '', 2, 0, '', '', '', '', '211.172.232.124', '7295', '', 1, 'kakao', '', '', '', '', '', '', '', '', '', '', 'e9849a2babd50c1a08ab1689b316de0b', 'so6t9Mk5Dl4CgSLCl3LsxhIQWcBdxEH7', '8d2bbbd71d97048cda6e8ec4232ca143', 'kcaptcha', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `g5_config` (`cf_title`, `cf_theme`, `cf_admin`, `cf_admin_add`, `cf_admin_email`, `cf_admin_email_name`, `cf_add_script`, `cf_use_point`, `cf_point_term`, `cf_use_copy_log`, `cf_use_email_certify`, `cf_login_point`, `cf_cut_name`, `cf_nick_modify`, `cf_new_skin`, `cf_new_rows`, `cf_search_skin`, `cf_connect_skin`, `cf_faq_skin`, `cf_read_point`, `cf_write_point`, `cf_comment_point`, `cf_download_point`, `cf_write_pages`, `cf_mobile_pages`, `cf_link_target`, `cf_delay_sec`, `cf_filter`, `cf_possible_ip`, `cf_intercept_ip`, `cf_analytics`, `cf_add_meta`, `cf_syndi_token`, `cf_syndi_except`, `cf_member_skin`, `cf_use_homepage`, `cf_req_homepage`, `cf_use_tel`, `cf_req_tel`, `cf_use_hp`, `cf_req_hp`, `cf_use_addr`, `cf_req_addr`, `cf_use_signature`, `cf_req_signature`, `cf_use_profile`, `cf_req_profile`, `cf_register_level`, `cf_register_point`, `cf_icon_level`, `cf_use_recommend`, `cf_recommend_point`, `cf_leave_day`, `cf_search_part`, `cf_email_use`, `cf_email_wr_super_admin`, `cf_email_wr_group_admin`, `cf_email_wr_board_admin`, `cf_email_wr_write`, `cf_email_wr_comment_all`, `cf_email_mb_super_admin`, `cf_email_mb_member`, `cf_email_po_super_admin`, `cf_prohibit_id`, `cf_prohibit_email`, `cf_new_del`, `cf_memo_del`, `cf_visit_del`, `cf_popular_del`, `cf_optimize_date`, `cf_use_member_icon`, `cf_member_icon_size`, `cf_member_icon_width`, `cf_member_icon_height`, `cf_member_img_size`, `cf_member_img_width`, `cf_member_img_height`, `cf_login_minutes`, `cf_image_extension`, `cf_flash_extension`, `cf_movie_extension`, `cf_formmail_is_member`, `cf_page_rows`, `cf_mobile_page_rows`, `cf_visit`, `cf_max_po_id`, `cf_stipulation`, `cf_privacy`, `cf_open_modify`, `cf_memo_send_point`, `cf_mobile_new_skin`, `cf_mobile_search_skin`, `cf_mobile_connect_skin`, `cf_mobile_faq_skin`, `cf_mobile_member_skin`, `cf_captcha_mp3`, `cf_editor`, `cf_cert_use`, `cf_cert_ipin`, `cf_cert_hp`, `cf_cert_kcb_cd`, `cf_cert_kcp_cd`, `cf_lg_mid`, `cf_lg_mert_key`, `cf_cert_limit`, `cf_cert_req`, `cf_sms_use`, `cf_sms_type`, `cf_icode_id`, `cf_icode_pw`, `cf_icode_server_ip`, `cf_icode_server_port`, `cf_googl_shorturl_apikey`, `cf_social_login_use`, `cf_social_servicelist`, `cf_payco_clientid`, `cf_payco_secret`, `cf_facebook_appid`, `cf_facebook_secret`, `cf_twitter_key`, `cf_twitter_secret`, `cf_google_clientid`, `cf_google_secret`, `cf_naver_clientid`, `cf_naver_secret`, `cf_kakao_rest_key`, `cf_kakao_client_secret`, `cf_kakao_js_apikey`, `cf_captcha`, `cf_recaptcha_site_key`, `cf_recaptcha_secret_key`, `cf_1_subj`, `cf_2_subj`, `cf_3_subj`, `cf_4_subj`, `cf_5_subj`, `cf_6_subj`, `cf_7_subj`, `cf_8_subj`, `cf_9_subj`, `cf_10_subj`, `cf_1`, `cf_2`, `cf_3`, `cf_4`, `cf_5`, `cf_6`, `cf_7`, `cf_8`, `cf_9`, `cf_10`) VALUES
+('HODL.RIP', 'basic', 'fcb_2207388702871157', '', 'admin@domain.com', 'HODL.RIP', '', 1, 0, 1, 0, 100, 15, 60, 'basic', 15, 'basic', 'basic', 'basic', 0, 0, 0, 0, 10, 5, '_blank', 30, '18아,18놈,18새끼,18뇬,18노,18것,18넘,개년,개놈,개뇬,개새,개색끼,개세끼,개세이,개쉐이,개쉑,개쉽,개시키,개자식,개좆,게색기,게색끼,광뇬,뇬,눈깔,뉘미럴,니귀미,니기미,니미,도촬,되질래,뒈져라,뒈진다,디져라,디진다,디질래,병쉰,병신,뻐큐,뻑큐,뽁큐,삐리넷,새꺄,쉬발,쉬밸,쉬팔,쉽알,스패킹,스팽,시벌,시부랄,시부럴,시부리,시불,시브랄,시팍,시팔,시펄,실밸,십8,십쌔,십창,싶알,쌉년,썅놈,쌔끼,쌩쑈,썅,써벌,썩을년,쎄꺄,쎄엑,쓰바,쓰발,쓰벌,쓰팔,씨8,씨댕,씨바,씨발,씨뱅,씨봉알,씨부랄,씨부럴,씨부렁,씨부리,씨불,씨브랄,씨빠,씨빨,씨뽀랄,씨팍,씨팔,씨펄,씹,아가리,아갈이,엄창,접년,잡놈,재랄,저주글,조까,조빠,조쟁이,조지냐,조진다,조질래,존나,존니,좀물,좁년,좃,좆,좇,쥐랄,쥐롤,쥬디,지랄,지럴,지롤,지미랄,쫍빱,凸,퍽큐,뻑큐,빠큐,ㅅㅂㄹㅁ', '', '', '', '', '', '', 'basic', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1000, 2, 0, 0, 30, 10000, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'admin,administrator,관리자,운영자,어드민,주인장,webmaster,웹마스터,sysop,시삽,시샵,manager,매니저,메니저,root,루트,su,guest,방문객', '', 30, 180, 180, 180, '2018-10-10', 2, 5000, 22, 22, 50000, 60, 60, 10, 'gif|jpg|jpeg|png', 'swf', 'asx|asf|wmv|wma|mpg|mpeg|mov|avi|mp3', 1, 15, 15, '오늘:3,어제:1,최대:5,전체:28', 1, '해당 홈페이지에 맞는 회원가입약관을 입력합니다.', '해당 홈페이지에 맞는 개인정보처리방침을 입력합니다.', 0, 500, 'basic', 'basic', 'basic', 'basic', 'basic', 'basic', 'smarteditor2', 0, '', '', '', '', '', '', 2, 0, '', '', '', '', '211.172.232.124', '7295', '', 1, 'kakao', '', '', '', '', '', '', '', '', '', '', 'e9849a2babd50c1a08ab1689b316de0b', 'so6t9Mk5Dl4CgSLCl3LsxhIQWcBdxEH7', '8d2bbbd71d97048cda6e8ec4232ca143', 'kcaptcha', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -549,11 +559,9 @@ CREATE TABLE `g5_login` (
 --
 
 INSERT INTO `g5_login` (`lo_ip`, `mb_id`, `lo_datetime`, `lo_location`, `lo_url`) VALUES
-('66.249.82.67', 'admin', '2018-10-02 22:45:05', '전체검색 결과', ''),
-('66.249.82.95', 'admin', '2018-10-02 22:45:20', '전체', ''),
-('66.249.82.65', 'admin', '2018-10-02 22:45:20', '전체', ''),
-('211.184.62.86', 'admin', '2018-10-02 22:33:08', '오류안내 페이지', ''),
-('::1', 'admin', '2018-10-02 22:48:36', '전체', '');
+('::1', '', '2018-10-10 18:01:22', 'HODL.RIP', '/'),
+('10.114.164.216', '', '2018-10-10 15:09:19', '양 > 팁과 노하우', '/bbs/board.php?bo_table=tip&wr_id=7'),
+('10.114.164.203', '', '2018-10-10 09:54:23', 'HODL.RIP', '/');
 
 -- --------------------------------------------------------
 
@@ -569,6 +577,13 @@ CREATE TABLE `g5_mail` (
   `ma_ip` varchar(255) NOT NULL DEFAULT '',
   `ma_last_option` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 테이블의 덤프 데이터 `g5_mail`
+--
+
+INSERT INTO `g5_mail` (`ma_id`, `ma_subject`, `ma_content`, `ma_time`, `ma_ip`, `ma_last_option`) VALUES
+(1, '테스트다', '<p>안농?</p>', '2018-10-10 10:08:53', '::1', '');
 
 -- --------------------------------------------------------
 
@@ -635,9 +650,9 @@ CREATE TABLE `g5_member` (
 --
 
 INSERT INTO `g5_member` (`mb_no`, `mb_id`, `mb_password`, `mb_name`, `mb_nick`, `mb_nick_date`, `mb_email`, `mb_homepage`, `mb_level`, `mb_sex`, `mb_birth`, `mb_tel`, `mb_hp`, `mb_certify`, `mb_adult`, `mb_dupinfo`, `mb_zip1`, `mb_zip2`, `mb_addr1`, `mb_addr2`, `mb_addr3`, `mb_addr_jibeon`, `mb_signature`, `mb_recommend`, `mb_point`, `mb_today_login`, `mb_login_ip`, `mb_datetime`, `mb_ip`, `mb_leave_date`, `mb_intercept_date`, `mb_email_certify`, `mb_email_certify2`, `mb_memo`, `mb_lost_certify`, `mb_mailling`, `mb_sms`, `mb_open`, `mb_open_date`, `mb_profile`, `mb_memo_call`, `mb_1`, `mb_2`, `mb_3`, `mb_4`, `mb_5`, `mb_6`, `mb_7`, `mb_8`, `mb_9`, `mb_10`) VALUES
-(1, 'admin', '*A4B6157319038724E3560894F7F932C8886EBFCF', '관리자', '관리자', '0000-00-00', 'admin@domain.com', '', 10, '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 1899, '2018-10-02 21:46:55', '::1', '2018-08-30 14:55:32', '::1', '', '', '2018-08-30 14:55:32', '', '', '', 1, 0, 1, '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', ''),
-(6, 'fcb_2207388702871157', '*6B9B0466CCC148610632D2536891962EDCACAA84', '김민혁', '김민혁', '2018-09-08', 'alsgur0008@naver.com', '', 2, '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 2100, '2018-09-30 21:25:16', '::1', '2018-09-08 13:57:29', '::1', '', '', '2018-09-08 13:57:29', '', '', '', 0, 0, 0, '2018-09-08', '', '', '', '', '', '', '', '', '', '', '', ''),
-(5, 'test', '*A4B6157319038724E3560894F7F932C8886EBFCF', '테스트', '테스트', '2018-09-07', 'test@test.com', '', 2, '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 1200, '2018-09-09 14:55:43', '::1', '2018-09-07 14:54:47', '::1', '', '', '2018-09-07 14:54:47', '', '', '', 1, 0, 1, '2018-09-07', '', '', '', '', '', '', '', '', '', '', '', '');
+(1, 'admin', '*A4B6157319038724E3560894F7F932C8886EBFCF', '관리자', '최고관리자', '0000-00-00', 'admin@domain.com', '', 10, '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 2299, '2018-10-10 09:55:11', '10.114.164.216', '2018-08-30 14:55:32', '::1', '', '', '2018-08-30 14:55:32', '', '', '', 1, 0, 1, '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', ''),
+(6, 'fcb_2207388702871157', '', '관리자', '관리자', '2018-09-08', 'a@a.a', '', 10, '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 2400, '2018-10-10 09:42:46', '::1', '2018-09-08 13:57:29', '::1', '', '', '2018-09-08 13:57:29', '', '20181010 삭제함\r\n', '', 0, 0, 0, '2018-10-08', '', '', '', '', '', '', '', '', '', '', '', ''),
+(5, 'test', '*A4B6157319038724E3560894F7F932C8886EBFCF', '테스트', '테스트', '2018-09-07', 'test@test.com', '', 2, '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 1300, '2018-10-10 12:33:04', '10.114.164.216', '2018-09-07 14:54:47', '::1', '', '', '2018-09-07 14:54:47', '', '', '', 1, 0, 1, '2018-09-07', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -746,41 +761,31 @@ INSERT INTO `g5_point` (`po_id`, `mb_id`, `po_datetime`, `po_content`, `po_point
 (8, 'admin', '2018-09-07 14:55:27', '2018-09-07 첫로그인', 100, 0, 0, '9999-12-31', 300, '@login', 'admin', '2018-09-07'),
 (9, 'admin', '2018-09-07 14:55:29', '질문답변 1 글읽기', -1, 0, 1, '2018-09-07', 299, 'qa', '1', '읽기'),
 (10, 'test', '2018-09-08 12:38:33', '2018-09-08 첫로그인', 100, 0, 0, '9999-12-31', 1100, '@login', 'test', '2018-09-08'),
-(11, 'fcb_2207388702871157', '2018-09-08 13:57:29', '회원가입 축하', 1000, 2, 0, '9999-12-31', 1000, '@member', 'fcb_2207388702871157', '회원가입'),
-(12, 'fcb_2207388702871157', '2018-09-09 12:17:08', '2018-09-09 첫로그인', 100, 0, 0, '9999-12-31', 1100, '@login', 'fcb_2207388702871157', '2018-09-09'),
-(13, 'fcb_2207388702871157', '2018-09-09 13:33:53', '질문답변 1 글읽기', -1, 0, 1, '2018-09-09', 1099, 'qa', '1', '읽기'),
 (15, 'test', '2018-09-09 14:55:43', '2018-09-09 첫로그인', 100, 0, 0, '9999-12-31', 1200, '@login', 'test', '2018-09-09'),
 (16, 'admin', '2018-09-10 11:31:14', '2018-09-10 첫로그인', 100, 0, 0, '9999-12-31', 399, '@login', 'admin', '2018-09-10'),
-(17, 'fcb_2207388702871157', '2018-09-10 13:29:11', '2018-09-10 첫로그인', 100, 0, 0, '9999-12-31', 1199, '@login', 'fcb_2207388702871157', '2018-09-10'),
 (20, 'admin', '2018-09-10 16:17:31', 'Q&A 2 글읽기', -1, 0, 1, '2018-09-10', 398, 'qa', '2', '읽기'),
-(22, 'fcb_2207388702871157', '2018-09-11 11:03:10', '2018-09-11 첫로그인', 100, 0, 0, '9999-12-31', 1299, '@login', 'fcb_2207388702871157', '2018-09-11'),
-(23, 'fcb_2207388702871157', '2018-09-11 11:03:19', '자유게시판 2 글읽기', -1, 0, 1, '2018-09-11', 1298, 'free', '2', '읽기'),
 (25, 'admin', '2018-09-11 20:12:52', '2018-09-11 첫로그인', 100, 0, 0, '9999-12-31', 498, '@login', 'admin', '2018-09-11'),
 (26, 'admin', '2018-09-12 17:18:34', '2018-09-12 첫로그인', 100, 0, 0, '9999-12-31', 598, '@login', 'admin', '2018-09-12'),
-(27, 'fcb_2207388702871157', '2018-09-12 19:22:05', '2018-09-12 첫로그인', 100, 0, 0, '9999-12-31', 1398, '@login', 'fcb_2207388702871157', '2018-09-12'),
-(29, 'fcb_2207388702871157', '2018-09-13 09:44:51', '2018-09-13 첫로그인', 100, 0, 0, '9999-12-31', 1498, '@login', 'fcb_2207388702871157', '2018-09-13'),
 (30, 'admin', '2018-09-13 10:51:45', '2018-09-13 첫로그인', 100, 0, 0, '9999-12-31', 698, '@login', 'admin', '2018-09-13'),
-(61, 'fcb_2207388702871157', '2018-09-19 16:57:20', '2018-09-19 첫로그인', 100, 0, 0, '9999-12-31', 1798, '@login', 'fcb_2207388702871157', '2018-09-19'),
-(40, 'fcb_2207388702871157', '2018-09-14 10:05:58', '2018-09-14 첫로그인', 100, 0, 0, '9999-12-31', 1598, '@login', 'fcb_2207388702871157', '2018-09-14'),
 (41, 'admin', '2018-09-14 12:15:16', '2018-09-14 첫로그인', 100, 0, 0, '9999-12-31', 798, '@login', 'admin', '2018-09-14'),
 (46, 'admin', '2018-09-16 11:36:15', '2018-09-16 첫로그인', 100, 0, 0, '9999-12-31', 898, '@login', 'admin', '2018-09-16'),
 (54, 'admin', '2018-09-17 10:41:13', '2018-09-17 첫로그인', 100, 0, 0, '9999-12-31', 998, '@login', 'admin', '2018-09-17'),
-(55, 'fcb_2207388702871157', '2018-09-17 10:44:38', '2018-09-17 첫로그인', 100, 0, 0, '9999-12-31', 1698, '@login', 'fcb_2207388702871157', '2018-09-17'),
 (56, 'admin', '2018-09-18 17:02:37', '2018-09-18 첫로그인', 100, 0, 0, '9999-12-31', 1098, '@login', 'admin', '2018-09-18'),
 (57, 'admin', '2018-09-19 09:47:26', '2018-09-19 첫로그인', 100, 0, 0, '9999-12-31', 1198, '@login', 'admin', '2018-09-19'),
 (60, 'admin', '2018-09-19 16:41:47', 'Q&A 27-28 댓글쓰기', 1, 0, 0, '9999-12-31', 1199, 'qa', '28', '댓글'),
-(62, 'fcb_2207388702871157', '2018-09-19 16:57:32', 'Q&A 27-29 댓글쓰기', 1, 0, 0, '9999-12-31', 1799, 'qa', '29', '댓글'),
-(63, 'fcb_2207388702871157', '2018-09-19 17:00:20', 'Q&A 26-30 댓글쓰기', 1, 0, 0, '9999-12-31', 1800, 'qa', '30', '댓글'),
 (64, 'admin', '2018-09-20 15:58:19', '2018-09-20 첫로그인', 100, 0, 0, '9999-12-31', 1299, '@login', 'admin', '2018-09-20'),
 (67, 'admin', '2018-09-21 10:55:07', '2018-09-21 첫로그인', 100, 0, 0, '9999-12-31', 1399, '@login', 'admin', '2018-09-21'),
-(68, 'fcb_2207388702871157', '2018-09-21 15:58:09', '2018-09-21 첫로그인', 100, 0, 0, '9999-12-31', 1900, '@login', 'fcb_2207388702871157', '2018-09-21'),
-(69, 'fcb_2207388702871157', '2018-09-23 11:14:03', '2018-09-23 첫로그인', 100, 0, 0, '9999-12-31', 2000, '@login', 'fcb_2207388702871157', '2018-09-23'),
 (70, 'admin', '2018-09-23 12:31:21', '2018-09-23 첫로그인', 100, 0, 0, '9999-12-31', 1499, '@login', 'admin', '2018-09-23'),
 (72, 'admin', '2018-09-26 18:40:55', '2018-09-26 첫로그인', 100, 0, 0, '9999-12-31', 1599, '@login', 'admin', '2018-09-26'),
 (73, 'admin', '2018-09-27 20:19:26', '2018-09-27 첫로그인', 100, 0, 0, '9999-12-31', 1699, '@login', 'admin', '2018-09-27'),
-(74, 'fcb_2207388702871157', '2018-09-30 21:25:16', '2018-09-30 첫로그인', 100, 0, 0, '9999-12-31', 2100, '@login', 'fcb_2207388702871157', '2018-09-30'),
 (75, 'admin', '2018-09-30 21:26:22', '2018-09-30 첫로그인', 100, 0, 0, '9999-12-31', 1799, '@login', 'admin', '2018-09-30'),
-(76, 'admin', '2018-10-02 21:46:55', '2018-10-02 첫로그인', 100, 0, 0, '9999-12-31', 1899, '@login', 'admin', '2018-10-02');
+(76, 'admin', '2018-10-02 21:46:55', '2018-10-02 첫로그인', 100, 0, 0, '9999-12-31', 1899, '@login', 'admin', '2018-10-02'),
+(79, 'admin', '2018-10-03 11:57:51', '2018-10-03 첫로그인', 100, 0, 0, '9999-12-31', 1999, '@login', 'admin', '2018-10-03'),
+(81, 'admin', '2018-10-08 09:50:02', '2018-10-08 첫로그인', 100, 0, 0, '9999-12-31', 2099, '@login', 'admin', '2018-10-08'),
+(83, 'admin', '2018-10-09 14:25:25', '2018-10-09 첫로그인', 100, 0, 0, '9999-12-31', 2199, '@login', 'admin', '2018-10-09'),
+(87, 'fcb_103444453975352', '2018-10-10 17:52:53', '회원가입 축하', 1000, 0, 0, '9999-12-31', 1000, '@member', 'fcb_103444453975352', '회원가입'),
+(85, 'admin', '2018-10-10 09:55:11', '2018-10-10 첫로그인', 100, 0, 0, '9999-12-31', 2299, '@login', 'admin', '2018-10-10'),
+(86, 'test', '2018-10-10 12:33:04', '2018-10-10 첫로그인', 100, 0, 0, '9999-12-31', 1300, '@login', 'test', '2018-10-10');
 
 -- --------------------------------------------------------
 
@@ -889,7 +894,11 @@ INSERT INTO `g5_popular` (`pp_id`, `pp_word`, `pp_date`, `pp_ip`) VALUES
 (37, '김민혁', '2018-10-02', '66.249.82.65'),
 (38, 'admin', '2018-10-02', '66.249.82.65'),
 (39, 'admin', '2018-10-02', '66.249.82.95'),
-(40, '이미지다', '2018-10-02', '::1');
+(40, '이미지다', '2018-10-02', '::1'),
+(41, 'ㅎ', '2018-10-08', '::1'),
+(42, '힝', '2018-10-08', '::1'),
+(43, '아', '2018-10-08', '::1'),
+(44, '양', '2018-10-08', '10.114.164.216');
 
 -- --------------------------------------------------------
 
@@ -1014,7 +1023,7 @@ CREATE TABLE `g5_social_member` (
 --
 
 INSERT INTO `g5_social_member` (`sm_no`, `sm_id`, `mb_id`, `sm_service`, `sm_ip`, `sm_datetime`, `mb_level`) VALUES
-(1, 'fcb_2207388702871157', 'fcb_2207388702871157', 'facebook', '::1', '2018-09-08 13:57:29', 1);
+(1, 'fcb_2207388702871157', 'fcb_2207388702871157', 'facebook', '::1', '2018-09-08 13:57:29', 10);
 
 -- --------------------------------------------------------
 
@@ -1102,7 +1111,15 @@ INSERT INTO `g5_uniqid` (`uq_id`, `uq_ip`) VALUES
 (18100222275838, '66.249.82.67'),
 (18100222275843, '66.249.82.67'),
 (18100222275846, '66.249.82.67'),
-(18100222364586, '::1');
+(18100222364586, '::1'),
+(18100809500688, '::1'),
+(18100809584569, '::1'),
+(18100818444819, '::1'),
+(18100818455377, '::1'),
+(18100818460498, '::1'),
+(18100818531316, '::1'),
+(18100818532607, '::1'),
+(18100914272568, '::1');
 
 -- --------------------------------------------------------
 
@@ -1145,7 +1162,16 @@ INSERT INTO `g5_visit` (`vi_id`, `vi_ip`, `vi_date`, `vi_time`, `vi_referer`, `v
 (16, '66.249.82.67', '2018-10-02', '22:18:58', '', 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955N Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36', '', '', ''),
 (17, '66.249.82.95', '2018-10-02', '22:19:04', 'http://125.130.230.50/', 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955N Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36', '', '', ''),
 (18, '66.249.82.65', '2018-10-02', '22:19:40', 'http://125.130.230.50/bbs/new.php', 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955N Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36', '', '', ''),
-(19, '211.184.62.86', '2018-10-02', '22:27:41', 'http://125.130.230.50/bbs/board.php?bo_table=qa', 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955N Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36', '', '', '');
+(19, '211.184.62.86', '2018-10-02', '22:27:41', 'http://125.130.230.50/bbs/board.php?bo_table=qa', 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955N Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36', '', '', ''),
+(20, '::1', '2018-10-03', '11:57:51', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36', '', '', ''),
+(21, '10.114.164.216', '2018-10-03', '12:38:51', '', 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955N Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36', '', '', ''),
+(22, '::1', '2018-10-04', '15:24:41', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36', '', '', ''),
+(23, '::1', '2018-10-08', '09:48:51', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36', '', '', ''),
+(24, '10.114.164.216', '2018-10-08', '16:36:02', '', 'Mozilla/5.0 (Linux; Android 8.0.0; SAMSUNG SM-A520S Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/7.4 Chrome/59.0.3071.125 Mobile Safari/537.36', '', '', ''),
+(25, '::1', '2018-10-09', '11:27:36', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36', '', '', ''),
+(26, '10.114.164.216', '2018-10-10', '09:54:20', '', 'Mozilla/5.0 (Linux; Android 8.0.0; SM-G955N Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36', '', '', ''),
+(27, '10.114.164.203', '2018-10-10', '09:54:23', '', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36', '', '', ''),
+(28, '::1', '2018-10-10', '12:33:24', 'http://localhost/', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1176,7 +1202,12 @@ INSERT INTO `g5_visit_sum` (`vs_date`, `vs_count`) VALUES
 ('2018-09-27', 1),
 ('2018-09-29', 1),
 ('2018-09-30', 1),
-('2018-10-02', 5);
+('2018-10-02', 5),
+('2018-10-03', 2),
+('2018-10-04', 1),
+('2018-10-08', 2),
+('2018-10-09', 1),
+('2018-10-10', 3);
 
 -- --------------------------------------------------------
 
@@ -1513,6 +1544,14 @@ CREATE TABLE `g5_write_tip` (
   `wr_9` varchar(255) NOT NULL,
   `wr_10` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 테이블의 덤프 데이터 `g5_write_tip`
+--
+
+INSERT INTO `g5_write_tip` (`wr_id`, `wr_num`, `wr_reply`, `wr_parent`, `wr_is_comment`, `wr_comment`, `wr_comment_reply`, `ca_name`, `wr_option`, `wr_subject`, `wr_content`, `wr_link1`, `wr_link2`, `wr_link1_hit`, `wr_link2_hit`, `wr_hit`, `wr_good`, `wr_nogood`, `mb_id`, `wr_password`, `wr_name`, `wr_email`, `wr_homepage`, `wr_datetime`, `wr_file`, `wr_last`, `wr_ip`, `wr_facebook_user`, `wr_twitter_user`, `wr_1`, `wr_2`, `wr_3`, `wr_4`, `wr_5`, `wr_6`, `wr_7`, `wr_8`, `wr_9`, `wr_10`) VALUES
+(6, -1, '', 6, 0, 0, '', '', '', '아아', 'ㅈㅇㄹ허ㅏㅣㄴㅇㄹ하ㅣㅗㅓㄹㅇㄴ히', '', '', 0, 0, 9, 0, 0, 'admin', '*A4B6157319038724E3560894F7F932C8886EBFCF', '관리자', 'admin@domain.com', '', '2018-10-08 09:50:10', 0, '2018-10-08 09:50:10', '::1', '', '', '', '', '', '', '', '', '', '', '', ''),
+(7, -2, '', 7, 0, 0, '', '', '', '양', 'ㄹㄹㅇㄴㅀ', '', '', 0, 0, 17, 1, 0, 'fcb_2207388702871157', '*6B9B0466CCC148610632D2536891962EDCACAA84', '기모띠', 'alsgur0008@naver.com', '', '2018-10-08 09:58:50', 0, '2018-10-08 09:58:50', '::1', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1960,13 +1999,13 @@ ALTER TABLE `g5_autosave`
 -- 테이블의 AUTO_INCREMENT `g5_board_good`
 --
 ALTER TABLE `g5_board_good`
-  MODIFY `bg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `bg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 테이블의 AUTO_INCREMENT `g5_board_new`
 --
 ALTER TABLE `g5_board_new`
-  MODIFY `bn_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `bn_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- 테이블의 AUTO_INCREMENT `g5_cert_history`
@@ -1996,13 +2035,13 @@ ALTER TABLE `g5_group_member`
 -- 테이블의 AUTO_INCREMENT `g5_mail`
 --
 ALTER TABLE `g5_mail`
-  MODIFY `ma_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ma_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 테이블의 AUTO_INCREMENT `g5_member`
 --
 ALTER TABLE `g5_member`
-  MODIFY `mb_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `mb_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- 테이블의 AUTO_INCREMENT `g5_member_social_profiles`
@@ -2026,7 +2065,7 @@ ALTER TABLE `g5_new_win`
 -- 테이블의 AUTO_INCREMENT `g5_point`
 --
 ALTER TABLE `g5_point`
-  MODIFY `po_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `po_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- 테이블의 AUTO_INCREMENT `g5_poll`
@@ -2038,7 +2077,7 @@ ALTER TABLE `g5_poll`
 -- 테이블의 AUTO_INCREMENT `g5_popular`
 --
 ALTER TABLE `g5_popular`
-  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- 테이블의 AUTO_INCREMENT `g5_qa_content`
@@ -2056,7 +2095,7 @@ ALTER TABLE `g5_scrap`
 -- 테이블의 AUTO_INCREMENT `g5_social_member`
 --
 ALTER TABLE `g5_social_member`
-  MODIFY `sm_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sm_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 테이블의 AUTO_INCREMENT `g5_write_dev`
@@ -2098,7 +2137,7 @@ ALTER TABLE `g5_write_qa`
 -- 테이블의 AUTO_INCREMENT `g5_write_tip`
 --
 ALTER TABLE `g5_write_tip`
-  MODIFY `wr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `wr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- 테이블의 AUTO_INCREMENT `sms5_book`

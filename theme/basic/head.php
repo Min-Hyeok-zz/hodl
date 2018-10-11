@@ -13,7 +13,7 @@ include_once(G5_LIB_PATH.'/poll.lib.php');
 include_once(G5_LIB_PATH.'/visit.lib.php');
 include_once(G5_LIB_PATH.'/connect.lib.php');
 include_once(G5_LIB_PATH.'/popular.lib.php');
-if (isset($_SESSION['ss_mb_id'])) {
+if ($is_member) {
     $mypoint = sql_fetch("SELECT mb_point from g5_member where mb_id='{$_SESSION['ss_mb_id']}'")['mb_point'];
 }
 ?>
@@ -32,11 +32,16 @@ if (isset($_SESSION['ss_mb_id'])) {
     <div class="subMenu">
  <!--        <i class="fas fa-language"></i>
         <select name="lang" class="lang">
-            <option value="korean" style="background: transparent;">KOREAN</option>
+            <option value="korean" style="background: tra nsparent;">KOREAN</option>
             <option value="english" style="background: transparent;">ENGLISH</option>
         </select> -->
         <?php if (isset($_SESSION['ss_mb_id'])): ?>
             <a href="<?php echo G5_BBS_URL ?>/logout.php" class="login-btn">LOGOUT</a>
+            <?php if ($is_admin): ?>
+            <a href="<?php echo G5_ADMIN_URL ?>" class="login-btn">관리자</a>
+            <?php else: ?>
+            <a href="<?php echo G5_BBS_URL ?>/member_confirm.php?url=register_form.php" class="login-btn">MYPAGE</a>
+            <?php endif ?>
         <?php else: ?>
             <a href="<?php echo G5_BBS_URL ?>/login.php" class="login-btn">LOGIN</a>
         <?php endif ?>
@@ -104,9 +109,11 @@ if (isset($_SESSION['ss_mb_id'])) {
 
 <!-- 콘텐츠 시작 { -->
 <div id="wrapper">
-        
+        <?php
+            $c = "";
+            if (!strpos($_SERVER['PHP_SELF'], "bbs")) $c = "main";
+        ?>
     <div id="container_wr" class="container_wr">
-   
-    <div class="container">
+    <div class="container <?php echo $c ?>">
         <?php if (!defined("_INDEX_")) { ?><?php } ?>
 

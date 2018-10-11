@@ -24,13 +24,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     <?php if (isset($member['mb_nick_date']) && $member['mb_nick_date'] > date("Y-m-d", G5_SERVER_TIME - ($config['cf_nick_modify'] * 86400))) { // 닉네임수정일이 지나지 않았다면  ?>
     <input type="hidden" name="mb_nick_default" value="<?php echo get_text($member['mb_nick']) ?>">
     <input type="hidden" name="mb_nick" value="<?php echo get_text($member['mb_nick']) ?>">
-    <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>" id="reg_mb_id" <?php echo $required ?> <?php echo $readonly ?> class="frm_input <?php echo $required ?> <?php echo $readonly ?>" minlength="3" maxlength="20">
     <?php }  ?>
 
     <div class="tbl_frm01 tbl_wrap">
         <table>
         <caption>사이트 이용정보 입력</caption>
         <tbody>
+        <tr>
+            <th scope="row"><label for="reg_mb_id">아이디<strong class="sound_only">필수</strong></label></th>
+            <td>
+                <span class="frm_info">영문자, 숫자, _ 만 입력 가능. 최소 3자이상 입력하세요.</span>
+                <input type="text" name="mb_id" value="<?php echo $member['mb_id'] ?>" id="reg_mb_id" <?php echo $required ?> <?php echo $readonly ?> class="frm_input <?php echo $required ?> <?php echo $readonly ?>" minlength="3" maxlength="20">
+                <span id="msg_mb_id"></span>
+            </td>
+        </tr>
         <tr>
             <th scope="row"><label for="reg_mb_password">비밀번호<strong class="sound_only">필수</strong></label></th>
             <td><input type="password" name="mb_password" id="reg_mb_password" <?php echo $required ?> class="frm_input <?php echo $required ?>" minlength="3" maxlength="20"></td>
@@ -175,6 +182,24 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         </tr>
         <?php }  ?>
 
+        <?php if ($config['cf_use_member_icon'] && $member['mb_level'] >= $config['cf_icon_level']) {  ?>
+        <tr>
+            <th scope="row"><label for="reg_mb_icon">회원아이콘</label></th>
+            <td>
+                <span class="frm_info">
+                    이미지 크기는 가로 <?php echo $config['cf_member_icon_width'] ?>픽셀, 세로 <?php echo $config['cf_member_icon_height'] ?>픽셀 이하로 해주세요.<br>
+                    gif만 가능하며 용량 <?php echo number_format($config['cf_member_icon_size']) ?>바이트 이하만 등록됩니다.
+                </span>
+                <input type="file" name="mb_icon" id="reg_mb_icon" class="frm_input">
+                <?php if ($w == 'u' && file_exists($mb_icon_path)) {  ?>
+                <img src="<?php echo $mb_icon_url ?>" alt="회원아이콘">
+                <input type="checkbox" name="del_mb_icon" value="1" id="del_mb_icon">
+                <label for="del_mb_icon">삭제</label>
+                <?php }  ?>
+            </td>
+        </tr>
+        <?php }  ?>
+
         <tr>
             <th scope="row"><label for="reg_mb_mailling">메일링서비스</label></th>
             <td>
@@ -229,6 +254,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             <th scope="row">자동등록방지</th>
             <td><?php echo captcha_html(); ?></td>
         </tr>
+        <?php
+        // 소셜로그인
+        include_once(G5_PLUGIN_PATH.'/oauth/register_form.skin.inc.php');
+        ?>
         </tbody>
         </table>
     </div>
@@ -236,19 +265,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     <div class="btn_confirm">
         <input type="submit" value="<?php echo $w==''?'회원가입':'정보수정'; ?>" id="btn_submit" class="btn_submit" accesskey="s">
         <a href="<?php echo G5_URL ?>" class="btn_cancel">취소</a>
-        <?php if($w != '') { ?> 
-<a href="javascript:member_leave();" class="btn_cancel">회원탈퇴</a> 
-<!-- <button class="btn_cancel" onclick="member_leave();">회원탈퇴</button> --> 
-<?php } // tto?> 
-
     </div>
     </form>
 
     <script>
-function member_leave() {  // 회원 탈퇴 tto 
-    if (confirm("회원에서 탈퇴 하시겠습니까?")) 
-            location.href = '<?php echo G5_BBS_URL ?>/member_confirm.php?url=member_leave.php'; 
- }
     $(function() {
         $("#reg_zip_find").css("display", "inline-block");
 

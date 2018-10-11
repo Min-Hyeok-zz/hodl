@@ -24,6 +24,9 @@ if(defined('G5_OAUTH_MEMBER_REGISTER_SELECT') && G5_OAUTH_MEMBER_REGISTER_SELECT
     set_session('ss_oauth_member_no', '');
 }
 
+    $mb_key = hash("sha256", get_real_client_ip() . $_SERVER['HTTP_USER_AGENT']);
+    set_session('ss_mb_key', $mb_key);
+
 if($member['mb_id']) {
     if($_GET['mode'] == 'connect') {
         // 기존 연동체크
@@ -36,12 +39,13 @@ if($member['mb_id']) {
         set_session('ss_oauth_request_mb_id',   $member['mb_id']);
         set_session('ss_oauth_request_mode',    'connect');
         set_session('ss_oauth_request_service', $service);
+        set_session('ss_mb_key', $mb_key);
     } else if($_GET['mode'] == 'confirm') {
         // 회원정보 체크
         $mb = get_member($member['mb_id'], 'mb_id');
-        if(!$mb['mb_id'])
+        if(!$mb['mb_id']){
             alert_close('회원 정보가 존재하지 않습니다.');
-
+        }
         // 연동처리를 위한 세션
         set_session('ss_oauth_request_mb_id',   $member['mb_id']);
         set_session('ss_oauth_request_mode',    'confirm');

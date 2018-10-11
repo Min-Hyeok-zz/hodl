@@ -1,8 +1,6 @@
 const gulp = require('gulp')
 const sass = require('gulp-sass')
 const autoprefixer = require('gulp-autoprefixer')
-const livereload = require('gulp-livereload')
-const connect = require('gulp-connect')
 
 gulp.task('sass', () => {
     return gulp.src('./scss/*.scss')
@@ -14,12 +12,6 @@ gulp.task('sass', () => {
     .pipe(gulp.dest('./css'))
 })
 
-gulp.task('livereload', () => {
-	gulp.src('./scss/*')
-	.pipe(connect.reload())
-})
-
 gulp.task('sass:watch', () => {
 	gulp.watch('./scss/*.scss',['sass'])
-	gulp.watch('./scss/*.scss',['livereload'])
 })

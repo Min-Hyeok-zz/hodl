@@ -14,7 +14,7 @@ include_once(G5_THEME_PATH.'/head.php');
 
     <div class="main-content">
     
-        <div class="banner">
+        <div class="banner" style="background: url(<?php echo G5_IMG_URL ?>/banner.png) center / cover;">
             
         </div>
 

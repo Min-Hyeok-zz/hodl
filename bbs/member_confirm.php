@@ -29,7 +29,6 @@ if( preg_match('#^/{3,}#', $url) ){
 }
 
 $url = get_text($url);
-
 include_once($member_skin_path.'/member_confirm.skin.php');
 
 include_once('./_tail.sub.php');

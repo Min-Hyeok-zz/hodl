@@ -255,11 +255,7 @@ if(!sql_query(" DESC {$g5['social_profile_table']} ", false)) {
 
 if(!$config['cf_faq_skin']) $config['cf_faq_skin'] = "basic";
 if(!$config['cf_mobile_faq_skin']) $config['cf_mobile_faq_skin'] = "basic";
-// 최고관리자 추가
-if(!isset($config['cf_admin_add'])) {
-    sql_query(" ALTER TABLE `{$g5['config_table']}`
-                    ADD `cf_admin_add` varchar(255) NOT NULL DEFAULT '' AFTER `cf_admin` ", true);
-}
+
 $g5['title'] = '환경설정';
 include_once ('./admin.head.php');
 
@@ -286,20 +282,6 @@ if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
     $userinfo = get_icode_userinfo($config['cf_icode_id'], $config['cf_icode_pw']);
 }
 ?>
-<script>
-function cmaAdminMemberAdd(obj,chkobj) {
-    var l = document.getElementsByName(chkobj);
-    var i;
-    var tag = "";
-    for(i = 0; i < l.length; i++ ) { // for문 시작
-        if(i > 0) tag += ",";
-        if(l[i].checked) { // if(l[i].checked) {
-            tag += l[i].value;
-        }
-    } // for문 종료
-    document.getElementById(obj).value = tag;
-}
-</script>
 
 <form name="fconfigform" id="fconfigform" method="post" onsubmit="return fconfigform_submit(this);">
 <input type="hidden" name="token" value="" id="token">

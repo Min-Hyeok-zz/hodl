@@ -797,12 +797,14 @@ function is_admin($mb_id)
 
     if (!$mb_id) return;
 
+    $arr = explode(',' , trim($config['cf_admin_add']));
+    if(in_array($mb_id, $arr))  return 'super';
+
     if ($config['cf_admin'] == $mb_id) return 'super';
     if (isset($group['gr_admin']) && ($group['gr_admin'] == $mb_id)) return 'group';
     if (isset($board['bo_admin']) && ($board['bo_admin'] == $mb_id)) return 'board';
     return '';
 }
-
 
 // 분류 옵션을 얻음
 // 4.00 에서는 카테고리 테이블을 없애고 보드테이블에 있는 내용으로 대체

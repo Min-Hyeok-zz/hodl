@@ -22,38 +22,38 @@ if ($w == "") {
     // 회원 로그인을 한 경우 회원가입 할 수 없다
     // 경고창이 뜨는것을 막기위해 아래의 코드로 대체
     // alert("이미 로그인중이므로 회원 가입 하실 수 없습니다.", "./");
-    if ($is_member) {
+    // if ($is_member) {
         goto_url(G5_URL);
-    }
+    // }
 
-    // 리퍼러 체크
-    referer_check();
+    // // 리퍼러 체크
+    // referer_check();
 
-    if (!isset($_POST['agree']) || !$_POST['agree']) {
-        alert('회원가입약관의 내용에 동의하셔야 회원가입 하실 수 있습니다.', G5_BBS_URL.'/register.php');
-    }
+    // if (!isset($_POST['agree']) || !$_POST['agree']) {
+    //     alert('회원가입약관의 내용에 동의하셔야 회원가입 하실 수 있습니다.', G5_BBS_URL.'/register.php');
+    // }
 
-    if (!isset($_POST['agree2']) || !$_POST['agree2']) {
-        alert('개인정보처리방침안내의 내용에 동의하셔야 회원가입 하실 수 있습니다.', G5_BBS_URL.'/register.php');
-    }
+    // if (!isset($_POST['agree2']) || !$_POST['agree2']) {
+    //     alert('개인정보처리방침안내의 내용에 동의하셔야 회원가입 하실 수 있습니다.', G5_BBS_URL.'/register.php');
+    // }
 
-    $agree  = preg_replace('#[^0-9]#', '', $_POST['agree']);
-    $agree2 = preg_replace('#[^0-9]#', '', $_POST['agree2']);
+    // $agree  = preg_replace('#[^0-9]#', '', $_POST['agree']);
+    // $agree2 = preg_replace('#[^0-9]#', '', $_POST['agree2']);
 
-    $member['mb_birth'] = '';
-    $member['mb_sex']   = '';
-    $member['mb_name']  = '';
-    if (isset($_POST['birth'])) {
-        $member['mb_birth'] = $_POST['birth'];
-    }
-    if (isset($_POST['sex'])) {
-        $member['mb_sex']   = $_POST['sex'];
-    }
-    if (isset($_POST['mb_name'])) {
-        $member['mb_name']  = $_POST['mb_name'];
-    }
+    // $member['mb_birth'] = '';
+    // $member['mb_sex']   = '';
+    // $member['mb_name']  = '';
+    // if (isset($_POST['birth'])) {
+    //     $member['mb_birth'] = $_POST['birth'];
+    // }
+    // if (isset($_POST['sex'])) {
+    //     $member['mb_sex']   = $_POST['sex'];
+    // }
+    // if (isset($_POST['mb_name'])) {
+    //     $member['mb_name']  = $_POST['mb_name'];
+    // }
 
-    $g5['title'] = '회원 가입';
+    // $g5['title'] = '회원 가입';
 
 } else if ($w == 'u') {
 
@@ -100,6 +100,7 @@ if ($w == "") {
     $member['mb_signature']   = get_text($member['mb_signature']);
     $member['mb_recommend']   = get_text($member['mb_recommend']);
     $member['mb_profile']     = get_text($member['mb_profile']);
+    $member['mb_nick']        = get_text($member['mb_nick']);
     $member['mb_1']           = get_text($member['mb_1']);
     $member['mb_2']           = get_text($member['mb_2']);
     $member['mb_3']           = get_text($member['mb_3']);

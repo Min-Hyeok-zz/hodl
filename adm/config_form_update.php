@@ -29,6 +29,7 @@ $cf_social_servicelist = !empty($_POST['cf_social_servicelist']) ? implode(',', 
 $sql = " update {$g5['config_table']}
             set cf_title = '{$_POST['cf_title']}',
                 cf_admin = '{$_POST['cf_admin']}',
+                cf_admin_add = '{$_POST['cf_admin_add']}',
                 cf_admin_email = '{$_POST['cf_admin_email']}',
                 cf_admin_email_name = '{$_POST['cf_admin_email_name']}',
                 cf_add_script = '{$_POST['cf_add_script']}',
