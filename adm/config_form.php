@@ -341,6 +341,13 @@ function cmaAdminMemberAdd(obj,chkobj) {
             </td>
         </tr>
         <tr>
+            <th scope="row"><label for="cf_1">광고 URL 설정<strong class="sound_only">필수</strong></label></th>
+            <td colspan="3">
+                <?php echo help('메인 페이지의 배너 광고 URL을 설정합니다 (파일 크기는 너비 955px 높이 150px 정도가 적당합니다.)') ?>
+                <input type="text" name="cf_1" value="<?php echo $config['cf_1'] ?>" id="cf_1" required class="required frm_input" size="40">
+            </td>
+        </tr>
+        <tr>
             <th scope="row"><label for="cf_use_point">포인트 사용</label></th>
             <td colspan="3"><input type="checkbox" name="cf_use_point" value="1" id="cf_use_point" <?php echo $config['cf_use_point']?'checked':''; ?>> 사용</td>
         </tr>
@@ -1328,7 +1335,7 @@ function cmaAdminMemberAdd(obj,chkobj) {
             <col>
         </colgroup>
         <tbody>
-        <?php for ($i=1; $i<=10; $i++) { ?>
+        <?php for ($i=2; $i<=10; $i++) { ?>
         <tr>
             <th scope="row">여분필드<?php echo $i ?></th>
             <td class="td_extra">

@@ -87,7 +87,7 @@ if ($is_member) {
         <div class="sec-info">
             <p class="sec-title"><span>HODL.RIP</span> Talk</p>
             <?php if (isset($mypoint)): ?>
-            <p class="sec-mypoint">나의 활동점수: <?php echo $mypoint; ?>점</p>
+            <p class="sec-mypoint">나의 활동점수: <?php echo $mypoint; ?>점 (<?php echo setLevelName($mypoint); ?>)</p>
             <?php endif ?>
         </div>
         <div class="sec-search">

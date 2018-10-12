@@ -4,10 +4,14 @@
 
 //레벨별 등급 이름 설정
 
-function setLevelClass ($level) {
-    $levelArray = ['쌉초보','초보','일반','존버','존버충','고수','쌉고수','킹갓','갑부','관리자'];
-    set_session('ss_mb_level', $level);
-    set_session('ss_mb_class', $levelArray[$level-1]);
+function setLevelName ($point) {
+    switch ($point) {
+        case $point <= 1000: $name = "초보"; break;
+        case $point <= 2500: $name = "중수"; break;
+        case $point <= 7000: $name = "고수"; break;
+        case $point <= 15000: $name = "쌉고수"; break;
+    }
+    return $name;
 }
 
 function passingTime ($datetime) { //시간을 방금,몇분전 등으로 표시 합니다.
