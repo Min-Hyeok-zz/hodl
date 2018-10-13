@@ -167,14 +167,42 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             <td><textarea name="mb_signature" id="reg_mb_signature" <?php echo $config['cf_req_signature']?"required":""; ?> class="<?php echo $config['cf_req_signature']?"required":""; ?>"><?php echo $member['mb_signature'] ?></textarea></td>
         </tr>
         <?php }  ?>
-
-        <?php if ($config['cf_use_profile']) {  ?>
+        <?php if ($mebmer['mb_1'] != ""): ?>
         <tr>
-            <th scope="row"><label for="reg_mb_profile">자기소개</label></th>
-            <td><textarea name="mb_profile" id="reg_mb_profile" <?php echo $config['cf_req_profile']?"required":""; ?> class="<?php echo $config['cf_req_profile']?"required":""; ?>"><?php echo $member['mb_profile'] ?></textarea></td>
+            <th scope="row"><label for="mb_1">apikey 설정</label></th>
+            <td>
+                <input type="text" name="mb_1" class="frm_input" placeholder="API_KEY 입력해라">
+                <p>야야 <?php echo $member['mb_1'] ?></p>
+            </td>
         </tr>
-        <?php }  ?>
-
+        <tr>
+            <th scope="row"><label for="mb_1">secretkey 설정</label></th>
+            <td>
+                <input type="text" name="mb_2" class="frm_input" placeholder="알지? 입력해라">
+            </td>
+        </tr>
+        <?php else: ?>
+        <tr>
+            <th scope="row"><label for="mb_1">apikey 설정</label></th>
+            <td>
+                <input type="text" name="apikey" value="<?php echo json_encode($member['mb_1']); ?>">
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><label for="mb_1">secretkey 설정</label></th>
+            <td>
+                <input type="text" name="seckey" value="<?php echo json_encode($member['mb_2']); ?>">
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><label for="mb_1">조회</label></th>
+            <td>
+                <form action="<?php echo _APIKEY ?>" method="post">
+                    <button type="submit">조회</button>
+                </form>
+            </td>
+        </tr>
+        <?php endif ?>
         <tr>
             <th scope="row"><label for="reg_mb_mailling">메일링서비스</label></th>
             <td>
