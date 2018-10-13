@@ -33,6 +33,7 @@ else
 if(!$mb_id)
     alert('회원아이디 값이 없습니다. 올바른 방법으로 이용해 주십시오.');
 
+
 $mb_password    = trim($_POST['mb_password']);
 $mb_password_re = trim($_POST['mb_password_re']);
 $mb_name        = trim($_POST['mb_name']);
@@ -490,6 +491,55 @@ if ($config['cf_use_email_certify'] && $old_email != $mb_email) {
     mailer($config['cf_admin_email_name'], $config['cf_admin_email'], $mb_email, $subject, $content, 1);
 }
 
+if (isset($_POST['apikey']) && isset($_POST['seckey'])) {
+    $url = _APIKEY;    
+    $a = array(
+        'exchange'=> 'upbit',
+        'apikey' => [
+            'apikey' => $_POST['apikey'],
+            'seckey' => $_POST['seckey']
+        ]
+    );
+    $content = json_encode($a);
+
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_HEADER, false);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER,
+            array("Content-type: application/json"));
+    curl_setopt($curl, CURLOPT_POST, true);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
+
+    $json_response = curl_exec($curl);
+
+    $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+    if ( $status != 200 ) {
+        die("Error: call to URL $url failed with status $status, response $json_response, curl_error " . curl_error($curl) . ", curl_errno " . curl_errno($curl));
+    }
+
+
+    curl_close($curl);
+
+    $res = json_decode($json_response, true);
+    print_r(number_format(2.284e-05,8));
+    exit;
+}
+
+
+
+    // $apikey = json_encode($_POST['apikey']);
+    // $seckey = json_encode($_POST['seckey']);
+    // $json = "
+    //     'exchange': 'upbit',
+    //     'apikey': {
+    //         'apikey': {$apikey},
+    //         'seckey': {$seckey}
+    //     }
+    // ";
+    // $_REQUEST['']
+    // print_r($json);
+    // exit;
 
 // 사용자 코드 실행
 @include_once ($member_skin_path.'/register_form_update.tail.skin.php');
