@@ -92,6 +92,9 @@ define('G5_SNS_URL',        G5_PLUGIN_URL.'/'.G5_SNS_DIR);
 define('G5_SYNDI_URL',      G5_PLUGIN_URL.'/'.G5_SYNDI_DIR);
 define('G5_MOBILE_URL',     G5_URL.'/'.G5_MOBILE_DIR);
 
+//서버 api주소
+define('_APIKEY',"https://27a4maeo2h.execute-api.ap-northeast-2.amazonaws.com/supersaver_balance_checker/balance-checker");
+
 // PATH 는 서버상에서의 절대경로
 define('G5_ADMIN_PATH',     G5_PATH.'/'.G5_ADMIN_DIR);
 define('G5_BBS_PATH',       G5_PATH.'/'.G5_BBS_DIR);
