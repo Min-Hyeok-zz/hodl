@@ -24,13 +24,26 @@ if(!$_POST['cf_cert_use']) {
     $_POST['cf_cert_hp'] = '';
 }
 
-//배너 이미지 파일 업로드 했을 경우 실행
-if (isset($_POST['banner_img'])) {
-    $changeName = md5($_POST['banner_img']);
-    $bannerSql = " update {g5['banner_img']}
-                    set 
-    ";
+if (isset($_FILES['banner_img']) && $_FILES['banner_img']['tmp_name'] != "") {
+    $file = $_FILES['banner_img'];
+    $getType = explode(".", strtolower($file['name']));
+    $typeArr = ['jpg','jpeg','gif','png'];
+    if (!in_array($getType[1], $typeArr)) {
+        alert("이미지 파일은 jpg,jpeg,gif,png만 업로드 할 수 있습니다.");
     }
+    $changeName = time().$file['name'];
+    $tmp_name = $file['tmp_name'];
+    move_uploaded_file($tmp_name, G5_BANNER_FILE."/".$changeName);
+    $sql = "INSERT INTO g5_banner SET name='{$changeName}'";
+    sql_query($sql);
+}
+
+if (isset($_POST['banner_remove'])) {
+    $sql = "DELETE FROM g5_banner where name='{$_POST['banner_remove']}'";
+    @unlink(G5_BANNER_FILE."/".$_POST['banner_remove']);
+    sql_query($sql);
+}
+
 
 $cf_social_servicelist = !empty($_POST['cf_social_servicelist']) ? implode(',', $_POST['cf_social_servicelist']) : '';
 $sql = " update {$g5['config_table']}

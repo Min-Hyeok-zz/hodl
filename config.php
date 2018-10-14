@@ -92,6 +92,7 @@ define('G5_SNS_URL',        G5_PLUGIN_URL.'/'.G5_SNS_DIR);
 define('G5_SYNDI_URL',      G5_PLUGIN_URL.'/'.G5_SYNDI_DIR);
 define('G5_MOBILE_URL',     G5_URL.'/'.G5_MOBILE_DIR);
 define('G5_BANNER_URL',     G5_URL.'/banner');
+define('G5_BANNER_FILE',    __DIR__."/banner");
 
 //서버 api주소
 define('_APIKEY',"https://27a4maeo2h.execute-api.ap-northeast-2.amazonaws.com/supersaver_balance_checker/balance-checker");

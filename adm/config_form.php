@@ -285,9 +285,7 @@ if (!$config['cf_icode_server_port']) $config['cf_icode_server_port'] = '7295';
 if ($config['cf_sms_use'] && $config['cf_icode_id'] && $config['cf_icode_pw']) {
     $userinfo = get_icode_userinfo($config['cf_icode_id'], $config['cf_icode_pw']);
 }
-
-$bannerQuery = sql_query("SELECT * FROM G5_banner");
-
+$bannerQuery = sql_query("SELECT * FROM g5_banner");
 ?>
 <script>
 function cmaAdminMemberAdd(obj,chkobj) {
@@ -303,12 +301,12 @@ function cmaAdminMemberAdd(obj,chkobj) {
     document.getElementById(obj).value = tag;
 }
 </script>
-<style>
-    .banner_img {width: 250px;cursor: pointer;}
-    .banner_img.active {border: 2px solid #3f3f3f;}
+<style type="text/css">
+    .banner_img {width: 250px; cursor: pointer;box-sizing: border-box;}
+    .banner_img.active {border: 2px solid #3f51b5;}
 </style>
 
-<form name="fconfigform" id="fconfigform" method="post" onsubmit="return fconfigform_submit(this);">
+<form name="fconfigform" id="fconfigform" method="post" enctype="multipart/form-data" onsubmit="return fconfigform_submit(this);">
 <input type="hidden" name="token" value="" id="token">
 
 <section id="anc_cf_basic">
@@ -350,17 +348,17 @@ function cmaAdminMemberAdd(obj,chkobj) {
         <tr>
             <th scope="row"><label for="cf_1">광고 URL 설정<strong class="sound_only">필수</strong></label></th>
             <td colspan="3">
-                <?php echo help('메인 페이지의 배너 광고 URL을 설정합니다 (파일 크기는 너비 955px 높이 150px 정도가 적당합니다.)') ?>
-                <input type="text" name="cf_1" value="<?php echo $config['cf_1'] ?>" id="cf_1" required class="required frm_input" size="40" readonly><br>
-                <?php echo help('메인 페이지의 배너 광고 이미지 파일을 업로드 합니다.') ?>
+                <input type="hidden" name="cf_1" value="<?php echo $config['cf_1'] ?>" id="cf_1" required class="required frm_input" size="40">
+                <input type="hidden" name="banner_remove">
+                <?php echo help('메인 페이지의 배너 광고 이미지를 업로드합니다. (파일 크기는 너비 955px 높이 150px 정도가 적당하며 jpg,jpeg,gif,png만 업로드 할 수 있습니다.)') ?>
                 <input type="file" name="banner_img">
-                <br>
-                <?php echo help('현재 업로드 되어 있는 광고 이미지입니다. 선택해서 광고를 변경할 수 있습니다.') ?>
+                <?php echo help('현재 업로드된 배너 이미지입니다. 선택해서 변경할 수 있습니다.') ?>
                 <?php while ($banner = sql_fetch_array($bannerQuery)) {
                     $active = "";
-                    if ($banner['filename'] == $config['cf_1']) $active="active"; 
+                    if ($config['cf_1'] == $banner['name']) $active = "active";
                 ?>
-                    <img src="<?php echo G5_BANNER_URL."/";print_r($banner['filename']);?>" alt="<?php echo G5_BANNER_URL."/";print_r($banner['filename']);?>" class="banner_img <?php echo $active; ?>" data="<?php print_r($banner['filename']);?>">
+                    <img src="<?php print_r(G5_BANNER_URL."/".$banner['name']); ?>" class="banner_img <?php echo $active ?>" data="<?php print_r($banner['name']); ?>">
+                    <button class="banner_remove" data="<?php print_r($banner['name']); ?>">삭제</button>
                 <?php } ?>
             </td>
         </tr>
@@ -1376,10 +1374,21 @@ function cmaAdminMemberAdd(obj,chkobj) {
 
 <script>
 $(function(){
-    $(".banner_img").click(function () {
+    $(".banner_img").click(function(){
+        $(".banner_img").removeClass('active');
+        $(this).addClass('active');
         var data = $(this).attr('data');
         $("input[name='cf_1']").val(data);
     })
+
+    $(".banner_remove").click(function(){
+        if (confirm('해당 이미지를 삭제하시겠습니까?')) {
+            var data = $(this).attr('data');
+            $("input[name='banner_remove']").val(data);
+            $(".btn_submit").click();
+        }
+    })
+
     <?php
     if(!$config['cf_cert_use'])
         echo '$(".cf_cert_service").addClass("cf_cert_hide");';

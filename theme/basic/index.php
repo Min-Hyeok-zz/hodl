@@ -8,13 +8,17 @@ if (G5_IS_MOBILE) {
 }
 
 include_once(G5_THEME_PATH.'/head.php');
+$banner = "";
+if ($config['cf_1'] != "" && file_exists(G5_BANNER_FILE."/{$config['cf_1']}")) {
+    $banner = "background: url(".G5_BANNER_URL."/{$config['cf_1']}) center / cover;";
+}
 ?>
 
     <!-- 메인 페이지 컨텐츠 -->
 
     <div class="main-content">
     
-        <div class="banner" style="background: url(<?php echo G5_BANNER_URL."/".$config['cf_1'] ?>) center / cover;">
+        <div class="banner" style="<?php echo $banner ?>">
             
         </div>
 
