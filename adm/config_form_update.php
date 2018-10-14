@@ -24,6 +24,14 @@ if(!$_POST['cf_cert_use']) {
     $_POST['cf_cert_hp'] = '';
 }
 
+//배너 이미지 파일 업로드 했을 경우 실행
+if (isset($_POST['banner_img'])) {
+    $changeName = md5($_POST['banner_img']);
+    $bannerSql = " update {g5['banner_img']}
+                    set 
+    ";
+    }
+
 $cf_social_servicelist = !empty($_POST['cf_social_servicelist']) ? implode(',', $_POST['cf_social_servicelist']) : '';
 $sql = " update {$g5['config_table']}
             set cf_title = '{$_POST['cf_title']}',
